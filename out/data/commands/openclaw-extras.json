@@ -1,0 +1,305 @@
+[
+    {
+        "id": "ext.oc.best-practices",
+        "name": "OpenClaw 最佳实践",
+        "aliases": [
+            "最佳实践",
+            "使用技巧",
+            "高效使用"
+        ],
+        "category": "openclaw",
+        "description": "高效使用 OpenClaw 的综合建议：明确任务描述、分步拆解复杂需求、善用记忆系统和知识库积累项目上下文",
+        "syntax": "在对话中用清晰的结构化描述表达需求",
+        "examples": [
+            {
+                "desc": "好的提问方式",
+                "cmd": "\"请帮我分析 src/auth/ 下的登录流程，找出潜在的安全漏洞，用中文说明\""
+            },
+            {
+                "desc": "拆解复杂任务",
+                "cmd": "\"分三步完成：1.审查 API 接口 2.优化数据库查询 3.添加错误处理\""
+            }
+        ],
+        "tags": [
+            "技巧",
+            "效率",
+            "实践"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.prompt-engineering",
+            "oc.workflow"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.oc.prompt-templates",
+        "name": "提示词模板",
+        "aliases": [
+            "提示词",
+            "prompt模板",
+            "提问模板"
+        ],
+        "category": "openclaw",
+        "description": "常用场景的提示词模板：代码审查、功能开发、Bug 修复、文档生成、测试编写等",
+        "syntax": "按照模板结构填写具体内容",
+        "examples": [
+            {
+                "desc": "Bug 修复模板",
+                "cmd": "\"Bug: [描述现象]。复现步骤: [步骤]。期望行为: [正确行为]。相关文件: [路径]\""
+            },
+            {
+                "desc": "功能开发模板",
+                "cmd": "\"需求: [描述]。技术栈: [语言/框架]。约束: [限制条件]。请先设计方案再实现\""
+            }
+        ],
+        "tags": [
+            "提示词",
+            "模板",
+            "效率"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.prompt-engineering",
+            "ext.oc.best-practices"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.oc.memory-strategy",
+        "name": "记忆系统使用策略",
+        "aliases": [
+            "记忆",
+            "memory",
+            "上下文记忆",
+            "长期记忆"
+        ],
+        "category": "openclaw",
+        "description": "善用 OpenClaw 的记忆系统保存项目知识、用户偏好、架构决策，减少重复解释，提升后续协作效率",
+        "syntax": "明确告诉智能体\"记住 XXX\" 或在对话中自然提及重要信息",
+        "examples": [
+            {
+                "desc": "保存项目偏好",
+                "cmd": "\"记住我们项目使用 TypeScript strict 模式，所有代码都要有类型注解\""
+            },
+            {
+                "desc": "保存架构决策",
+                "cmd": "\"记住我们选择 PostgreSQL 作为主数据库，不要推荐 MySQL 方案\""
+            }
+        ],
+        "tags": [
+            "记忆",
+            "持久化",
+            "效率"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.memory",
+            "oc.knowledge-base"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.oc.kb-management",
+        "name": "知识库管理",
+        "aliases": [
+            "知识库",
+            "knowledge base",
+            "文档管理",
+            "KB"
+        ],
+        "category": "openclaw",
+        "description": "构建和管理项目知识库：上传设计文档、API 文档、项目规范，让智能体有完整的项目上下文",
+        "syntax": "在知识库模块添加文档、链接或直接粘贴内容",
+        "examples": [
+            {
+                "desc": "添加技术文档到知识库",
+                "cmd": "将项目的 API 文档和架构设计文档添加到知识库"
+            },
+            {
+                "desc": "引用知识库内容",
+                "cmd": "\"根据知识库中的 API 文档，生成新的接口代码\""
+            }
+        ],
+        "tags": [
+            "知识库",
+            "文档",
+            "RAG"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.knowledge-base",
+            "oc.memory"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.oc.plugin-ecosystem",
+        "name": "插件生态与扩展",
+        "aliases": [
+            "插件",
+            "plugin",
+            "扩展",
+            "生态系统"
+        ],
+        "category": "openclaw",
+        "description": "利用插件系统扩展 OpenClaw 能力：数据库连接、第三方 API、自定义工具等",
+        "syntax": "在插件管理中安装和配置插件",
+        "examples": [
+            {
+                "desc": "安装数据库插件",
+                "cmd": "搜索并安装 PostgreSQL 插件，配置数据库连接"
+            },
+            {
+                "desc": "自定义工具",
+                "cmd": "开发一个自定义插件来调用公司内部的 API"
+            }
+        ],
+        "tags": [
+            "插件",
+            "扩展",
+            "集成"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.mcp-server",
+            "oc.plugin"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "ext.oc.security-notes",
+        "name": "安全注意事项",
+        "aliases": [
+            "安全",
+            "security",
+            "敏感信息",
+            "API密钥"
+        ],
+        "category": "openclaw",
+        "description": "使用 AI 智能体时的安全要点：不泄露密钥和敏感数据、审查 AI 生成的代码、控制智能体权限范围",
+        "syntax": "检查代码中的敏感信息，使用环境变量存储密钥",
+        "examples": [
+            {
+                "desc": "使用环境变量",
+                "cmd": "将 API 密钥放在 .env 文件中，确保 .env 在 .gitignore 中"
+            },
+            {
+                "desc": "审查敏感操作",
+                "cmd": "智能体建议的涉及数据库或文件系统的操作，在执行前仔细审查"
+            }
+        ],
+        "tags": [
+            "安全",
+            "密钥",
+            "最佳实践"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.api-key",
+            "oc.sandbox"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.oc.collaboration",
+        "name": "多智能体协作",
+        "aliases": [
+            "协作",
+            "多智能体",
+            "任务分工",
+            "团队"
+        ],
+        "category": "openclaw",
+        "description": "多智能体协作模式：将大型任务拆解给不同智能体并行处理，如一个负责前端一个负责后端，最后合并结果",
+        "syntax": "将任务分解为独立子任务，分配给不同智能体",
+        "examples": [
+            {
+                "desc": "前后端分离开发",
+                "cmd": "智能体 A：实现 REST API；智能体 B：实现前端页面；最后一起联调"
+            },
+            {
+                "desc": "审查 + 修复",
+                "cmd": "智能体 A 审查代码找出问题，智能体 B 根据审查结果修复"
+            }
+        ],
+        "tags": [
+            "协作",
+            "并行",
+            "效率"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.parallel-execution",
+            "oc.task-delegation"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "ext.oc.cost-optimization",
+        "name": "成本优化策略",
+        "aliases": [
+            "成本",
+            "token",
+            "节省",
+            "费用优化"
+        ],
+        "category": "openclaw",
+        "description": "控制 AI 使用成本的策略：精简上下文、选择合适的模型、缓存重复查询、设置 token 预算",
+        "syntax": "减少不必要的文件引用，使用缓存，选择合适的模型",
+        "examples": [
+            {
+                "desc": "精简上下文",
+                "cmd": "只添加与当前任务相关的文件，用完即移除"
+            },
+            {
+                "desc": "分批处理",
+                "cmd": "将大量代码分批审查，而不是一次性提交几百个文件"
+            }
+        ],
+        "tags": [
+            "成本",
+            "优化",
+            "token"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.token-usage",
+            "oc.rate-limit",
+            "oc.model-select"
+        ],
+        "difficulty": "intermediate"
+    }
+]

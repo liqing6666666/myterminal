@@ -1,0 +1,66 @@
+<!-- myterminal/src/ui/webview/index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>myterminal</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 搜索栏 -->
+    <div class="search-bar">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="搜索指令... 如: 查找文件、磁盘空间、代码审查"
+        autofocus
+      />
+    </div>
+
+    <!-- 快速筛选标签 -->
+    <div class="category-tags">
+      <button class="tool-tag active" data-tool="">全部</button>
+      <button class="tool-tag" data-tool="linux">Linux</button>
+      <button class="tool-tag" data-tool="cmd">CMD</button>
+      <button class="tool-tag" data-tool="claude code">Claude Code</button>
+      <button class="tool-tag" data-tool="openclaw">OpenClaw</button>
+      <span class="tag-sep"></span>
+      <button class="tool-tag" data-tool="git">Git</button>
+      <button class="tool-tag" data-tool="docker">Docker</button>
+      <button class="tool-tag" data-tool="npm">npm</button>
+      <button class="tool-tag" data-tool="pip">pip</button>
+      <button class="tool-tag" data-tool="apt">apt</button>
+      <button class="tool-tag" data-tool="mysql">MySQL</button>
+      <button class="tool-tag" data-tool="redis">Redis</button>
+      <button class="tool-tag" data-tool="kubectl">K8s</button>
+      <button class="tool-tag" data-tool="go">Go</button>
+    </div>
+
+    <!-- 状态栏 -->
+    <div id="statusBar" class="status-bar">
+      <span id="statusText">共 836 条指令</span>
+    </div>
+
+    <!-- 结果列表 -->
+    <div id="results" class="results"></div>
+
+    <!-- 详情面板 -->
+    <div id="detail" class="detail hidden"></div>
+
+    <!-- 空状态 -->
+    <div id="empty" class="empty">
+      <div class="empty-icon">⌨️</div>
+      <div class="empty-text">输入中文描述或指令名开始搜索</div>
+      <div class="empty-hint">试试: "查找文件" · "磁盘空间" · "进程管理"</div>
+    </div>
+
+    <!-- 加载中 -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

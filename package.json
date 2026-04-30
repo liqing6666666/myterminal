@@ -1,0 +1,96 @@
+{
+  "name": "myterminal",
+  "displayName": "myterminal - AI Command Finder",
+  "description": "AI 指令查询智能体 — 中文搜索终端/Linux/ClaudeCode/OpenClaw 指令用法和示例",
+  "version": "0.1.0",
+  "publisher": "myterminal",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "myterminal",
+          "title": "myterminal",
+          "icon": "assets/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "myterminal": [
+        {
+          "id": "myterminal.search",
+          "name": "指令搜索",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "myterminal.focus",
+        "title": "聚焦搜索框"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "myterminal.focus",
+        "key": "ctrl+shift+m",
+        "mac": "cmd+shift+m",
+        "when": "view == myterminal.search"
+      }
+    ],
+    "configuration": {
+      "title": "myterminal",
+      "properties": {
+        "myterminal.enableEmbedding": {
+          "type": "boolean",
+          "default": true,
+          "description": "启用本地 embedding 语义搜索（需下载约 80MB 模型）"
+        },
+        "myterminal.deepseekApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "DeepSeek API Key（可选，用于增强语义理解）"
+        },
+        "myterminal.maxResults": {
+          "type": "number",
+          "default": 50,
+          "description": "搜索结果最大数量"
+        },
+        "myterminal.remoteSources": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "远程指令库 JSON URL 列表，用于联网更新指令数据"
+        },
+        "myterminal.autoUpdate": {
+          "type": "boolean",
+          "default": false,
+          "description": "启动时自动从远程源更新指令库"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.17.0",
+    "sharp": "^0.34.5"
+  }
+}

@@ -1,0 +1,565 @@
+[
+    {
+        "id": "ext.mklink",
+        "name": "mklink",
+        "aliases": [
+            "符号链接",
+            "快捷方式",
+            "软链接",
+            "硬链接"
+        ],
+        "category": "cmd",
+        "description": "创建符号链接或硬链接，类似 Linux 的 ln 命令",
+        "syntax": "mklink [/D | /H | /J] <链接> <目标>",
+        "examples": [
+            {
+                "desc": "创建文件符号链接",
+                "cmd": "mklink link.txt original.txt"
+            },
+            {
+                "desc": "创建目录符号链接",
+                "cmd": "mklink /D linkdir targetdir"
+            },
+            {
+                "desc": "创建硬链接",
+                "cmd": "mklink /H link.txt original.txt"
+            }
+        ],
+        "tags": [
+            "链接",
+            "文件",
+            "快捷方式"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.copy",
+            "cmd.dir"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.sc",
+        "name": "sc",
+        "aliases": [
+            "服务管理",
+            "Windows服务",
+            "服务控制"
+        ],
+        "category": "cmd",
+        "description": "与 Windows 服务控制管理器通信，查询、启动、停止、创建和删除服务",
+        "syntax": "sc <服务器> <命令> [服务名]",
+        "examples": [
+            {
+                "desc": "查询服务状态",
+                "cmd": "sc query wuauserv"
+            },
+            {
+                "desc": "启动服务",
+                "cmd": "sc start wuauserv"
+            },
+            {
+                "desc": "停止服务",
+                "cmd": "sc stop wuauserv"
+            },
+            {
+                "desc": "设置服务为自动启动",
+                "cmd": "sc config myservice start= auto"
+            }
+        ],
+        "tags": [
+            "服务",
+            "系统",
+            "管理"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.tasklist",
+            "cmd.net"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.icacls",
+        "name": "icacls",
+        "aliases": [
+            "权限管理",
+            "文件权限",
+            "ACL",
+            "访问控制"
+        ],
+        "category": "cmd",
+        "description": "显示和修改文件的访问控制列表（ACL），管理文件和目录权限",
+        "syntax": "icacls <文件> [/grant | /deny | /remove] [用户:权限]",
+        "examples": [
+            {
+                "desc": "查看文件权限",
+                "cmd": "icacls file.txt"
+            },
+            {
+                "desc": "授予用户完全控制权限",
+                "cmd": "icacls file.txt /grant username:F"
+            },
+            {
+                "desc": "移除用户权限",
+                "cmd": "icacls file.txt /remove username"
+            }
+        ],
+        "tags": [
+            "权限",
+            "安全",
+            "文件"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.attrib",
+            "cmd.takeown"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "ext.takeown",
+        "name": "takeown",
+        "aliases": [
+            "获取所有权",
+            "文件所有权",
+            "权限获取"
+        ],
+        "category": "cmd",
+        "description": "获取文件或文件夹的所有权，常用于恢复对系统文件的访问权限",
+        "syntax": "takeown [/F <文件>] [/R] [/A]",
+        "examples": [
+            {
+                "desc": "获取文件所有权",
+                "cmd": "takeown /f file.txt"
+            },
+            {
+                "desc": "递归获取文件夹所有权",
+                "cmd": "takeown /f C:\\folder /r"
+            }
+        ],
+        "tags": [
+            "权限",
+            "所有权",
+            "文件"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "ext.icacls",
+            "cmd.attrib"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.wmic",
+        "name": "wmic",
+        "aliases": [
+            "WMI",
+            "系统信息",
+            "硬件信息",
+            "wmic查询"
+        ],
+        "category": "cmd",
+        "description": "Windows Management Instrumentation 命令行工具，查询系统硬件和软件信息",
+        "syntax": "wmic <别名> [get/list/call]",
+        "examples": [
+            {
+                "desc": "查看 CPU 信息",
+                "cmd": "wmic cpu get name,numberofcores"
+            },
+            {
+                "desc": "查看内存信息",
+                "cmd": "wmic memorychip get capacity,speed"
+            },
+            {
+                "desc": "查看已安装软件列表",
+                "cmd": "wmic product get name,version"
+            }
+        ],
+        "tags": [
+            "系统",
+            "硬件",
+            "信息"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.systeminfo",
+            "cmd.driverquery"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.gpupdate",
+        "name": "gpupdate",
+        "aliases": [
+            "组策略",
+            "策略更新",
+            "域策略"
+        ],
+        "category": "cmd",
+        "description": "刷新本地和 Active Directory 组策略设置，使策略变更立即生效",
+        "syntax": "gpupdate [/force] [/target:{computer|user}]",
+        "examples": [
+            {
+                "desc": "刷新所有组策略",
+                "cmd": "gpupdate /force"
+            },
+            {
+                "desc": "只刷新用户策略",
+                "cmd": "gpupdate /target:user"
+            }
+        ],
+        "tags": [
+            "组策略",
+            "域",
+            "管理"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "ext.gpresult"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.pathping",
+        "name": "pathping",
+        "aliases": [
+            "网络诊断",
+            "路由追踪",
+            "延迟分析"
+        ],
+        "category": "cmd",
+        "description": "结合 ping 和 tracert 功能，逐跳分析网络延迟和丢包率",
+        "syntax": "pathping <目标>",
+        "examples": [
+            {
+                "desc": "分析到百度的路径质量",
+                "cmd": "pathping www.baidu.com"
+            },
+            {
+                "desc": "指定最大跳数",
+                "cmd": "pathping -h 15 www.baidu.com"
+            }
+        ],
+        "tags": [
+            "网络",
+            "诊断",
+            "延迟"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "lnx.ping",
+            "cmd.tracert"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.subst",
+        "name": "subst",
+        "aliases": [
+            "虚拟驱动器",
+            "路径映射",
+            "盘符映射"
+        ],
+        "category": "cmd",
+        "description": "将目录路径映射为虚拟驱动器盘符，方便快速访问常用目录",
+        "syntax": "subst <盘符:> <路径>",
+        "examples": [
+            {
+                "desc": "将目录映射为 Z 盘",
+                "cmd": "subst Z: C:\\Users\\me\\projects"
+            },
+            {
+                "desc": "删除虚拟驱动器",
+                "cmd": "subst Z: /d"
+            },
+            {
+                "desc": "查看所有虚拟驱动器",
+                "cmd": "subst"
+            }
+        ],
+        "tags": [
+            "驱动器",
+            "映射",
+            "快捷"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.cd",
+            "cmd.net"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.net-use",
+        "name": "net use",
+        "aliases": [
+            "网络驱动器",
+            "共享文件夹",
+            "映射网络盘"
+        ],
+        "category": "cmd",
+        "description": "连接或断开网络共享资源，可将共享文件夹映射为本地盘符",
+        "syntax": "net use [盘符:] \\\\服务器\\共享 [密码] [/user:用户名]",
+        "examples": [
+            {
+                "desc": "映射网络驱动器",
+                "cmd": "net use Z: \\\\server\\share"
+            },
+            {
+                "desc": "查看当前网络连接",
+                "cmd": "net use"
+            },
+            {
+                "desc": "断开网络驱动器",
+                "cmd": "net use Z: /delete"
+            }
+        ],
+        "tags": [
+            "网络",
+            "共享",
+            "驱动器"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "ext.subst",
+            "cmd.net"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.msinfo32",
+        "name": "msinfo32",
+        "aliases": [
+            "系统信息",
+            "硬件详情",
+            "系统摘要"
+        ],
+        "category": "cmd",
+        "description": "打开系统信息工具，显示硬件资源、组件和软件环境的详细摘要",
+        "syntax": "msinfo32 [/nfo | /report] [文件路径]",
+        "examples": [
+            {
+                "desc": "打开系统信息界面",
+                "cmd": "msinfo32"
+            },
+            {
+                "desc": "导出为 NFO 文件",
+                "cmd": "msinfo32 /nfo system.nfo"
+            }
+        ],
+        "tags": [
+            "系统",
+            "硬件",
+            "诊断"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.systeminfo",
+            "ext.wmic"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.sfc",
+        "name": "sfc",
+        "aliases": [
+            "系统文件检查",
+            "修复系统",
+            "文件校验"
+        ],
+        "category": "cmd",
+        "description": "扫描并修复受保护的系统文件，用缓存副本替换损坏的文件",
+        "syntax": "sfc [/scannow | /verifyonly | /scanfile]",
+        "examples": [
+            {
+                "desc": "扫描并修复所有系统文件",
+                "cmd": "sfc /scannow"
+            },
+            {
+                "desc": "仅验证不修复",
+                "cmd": "sfc /verifyonly"
+            }
+        ],
+        "tags": [
+            "系统",
+            "修复",
+            "文件"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "ext.dism",
+            "cmd.chkdsk"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.dism",
+        "name": "dism",
+        "aliases": [
+            "系统映像",
+            "修复映像",
+            "Windows更新"
+        ],
+        "category": "cmd",
+        "description": "部署映像服务和管理工具，用于修复 Windows 系统映像和启用 Windows 功能",
+        "syntax": "dism /online /<操作> [选项]",
+        "examples": [
+            {
+                "desc": "检查系统映像健康",
+                "cmd": "dism /online /cleanup-image /checkhealth"
+            },
+            {
+                "desc": "修复系统映像",
+                "cmd": "dism /online /cleanup-image /restorehealth"
+            }
+        ],
+        "tags": [
+            "系统",
+            "修复",
+            "映像"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "ext.sfc",
+            "cmd.chkdsk"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.shutdown-advanced",
+        "name": "shutdown 进阶",
+        "aliases": [
+            "关机",
+            "重启",
+            "远程关机",
+            "定时关机"
+        ],
+        "category": "cmd",
+        "description": "关机、重启、注销等操作，支持远程和定时执行",
+        "syntax": "shutdown [/s | /r | /l] [/t 秒] [/f] [/m \\\\计算机]",
+        "examples": [
+            {
+                "desc": "1小时后自动关机",
+                "cmd": "shutdown /s /t 3600"
+            },
+            {
+                "desc": "取消定时关机",
+                "cmd": "shutdown /a"
+            },
+            {
+                "desc": "强制重启",
+                "cmd": "shutdown /r /f /t 0"
+            },
+            {
+                "desc": "远程关机",
+                "cmd": "shutdown /s /m \\\\remote-pc /t 60"
+            }
+        ],
+        "tags": [
+            "关机",
+            "重启",
+            "远程"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.shutdown",
+            "cmd.powercfg"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.where",
+        "name": "where",
+        "aliases": [
+            "查找程序",
+            "定位命令",
+            "which"
+        ],
+        "category": "cmd",
+        "description": "在 PATH 中查找并显示可执行文件的位置，类似 Linux 的 which 命令",
+        "syntax": "where <文件名>",
+        "examples": [
+            {
+                "desc": "查找 python.exe 的位置",
+                "cmd": "where python"
+            },
+            {
+                "desc": "查找所有匹配的程序（包括重复的）",
+                "cmd": "where $path:python"
+            }
+        ],
+        "tags": [
+            "查找",
+            "路径",
+            "程序"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.dir",
+            "cmd.path"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.regsvr32",
+        "name": "regsvr32",
+        "aliases": [
+            "注册DLL",
+            "dll注册",
+            "组件注册"
+        ],
+        "category": "cmd",
+        "description": "注册和注销 DLL 和 ActiveX 控件到 Windows 注册表",
+        "syntax": "regsvr32 [/u] <dll文件>",
+        "examples": [
+            {
+                "desc": "注册 DLL 文件",
+                "cmd": "regsvr32 mycomponent.dll"
+            },
+            {
+                "desc": "注销 DLL 文件",
+                "cmd": "regsvr32 /u mycomponent.dll"
+            }
+        ],
+        "tags": [
+            "DLL",
+            "注册",
+            "组件"
+        ],
+        "platform": [
+            "windows"
+        ],
+        "related": [
+            "cmd.reg"
+        ],
+        "difficulty": "intermediate"
+    }
+]

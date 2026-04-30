@@ -1,0 +1,1278 @@
+[
+    {
+        "id": "oc.workspace",
+        "name": "workspace",
+        "aliases": [
+            "工作区",
+            "工作空间",
+            "workspace管理",
+            "项目目录"
+        ],
+        "category": "openclaw",
+        "description": "管理工作区：创建、切换、删除工作区。工作区是OpenClaw的项目根目录，所有文件操作和代码分析都在工作区范围内进行。",
+        "syntax": "oc workspace [create|switch|delete|list] [name]",
+        "examples": [
+            {
+                "desc": "创建新工作区",
+                "cmd": "oc workspace create my-project --path ./my-project"
+            },
+            {
+                "desc": "列出所有工作区",
+                "cmd": "oc workspace list"
+            }
+        ],
+        "tags": [
+            "工作区",
+            "项目管理",
+            "目录"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.project",
+            "oc.session",
+            "oc.config"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.project",
+        "name": "project",
+        "aliases": [
+            "项目",
+            "项目管理",
+            "项目配置",
+            "project管理"
+        ],
+        "category": "openclaw",
+        "description": "项目管理：初始化新项目、配置项目级设置、管理项目依赖。项目配置可覆盖全局默认配置，支持自定义Agent行为和工具集。",
+        "syntax": "oc project [init|config|info] [options]",
+        "examples": [
+            {
+                "desc": "初始化项目配置",
+                "cmd": "oc project init --name my-app --type nodejs"
+            },
+            {
+                "desc": "查看项目信息",
+                "cmd": "oc project info"
+            }
+        ],
+        "tags": [
+            "项目",
+            "配置",
+            "初始化"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.workspace",
+            "oc.config",
+            "oc.agent"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.session",
+        "name": "session",
+        "aliases": [
+            "会话",
+            "对话管理",
+            "会话恢复",
+            "对话历史"
+        ],
+        "category": "openclaw",
+        "description": "会话管理：查看、恢复、导出和清除对话会话。每个会话保存完整的对话历史、上下文和执行的操作记录，支持跨设备同步。",
+        "syntax": "oc session [list|resume|export|clear|switch] [session-id]",
+        "examples": [
+            {
+                "desc": "列出所有历史会话",
+                "cmd": "oc session list"
+            },
+            {
+                "desc": "恢复指定会话",
+                "cmd": "oc session resume sess_abc123"
+            }
+        ],
+        "tags": [
+            "会话",
+            "历史",
+            "对话"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.workspace",
+            "oc.context-window",
+            "oc.memory"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.agent",
+        "name": "agent",
+        "aliases": [
+            "智能体",
+            "Agent配置",
+            "AI代理",
+            "代理设置"
+        ],
+        "category": "openclaw",
+        "description": "智能体配置：创建和配置AI智能体，包括设定角色、定义能力边界、选择可用工具集、设置行为策略。支持多Agent协作和自定义Agent模板。",
+        "syntax": "oc agent [create|config|list|delete] [agent-name]",
+        "examples": [
+            {
+                "desc": "创建代码审查专用Agent",
+                "cmd": "oc agent create code-reviewer --role code-review --model claude-sonnet-4"
+            },
+            {
+                "desc": "列出所有已配置的Agent",
+                "cmd": "oc agent list"
+            }
+        ],
+        "tags": [
+            "智能体",
+            "AI代理",
+            "角色",
+            "工具"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.tool-call",
+            "oc.model-select",
+            "oc.task-delegation"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.tool-call",
+        "name": "tool-call",
+        "aliases": [
+            "工具调用",
+            "函数调用",
+            "工具执行",
+            "function-call"
+        ],
+        "category": "openclaw",
+        "description": "工具调用：Agent通过工具调用来执行具体操作，如读写文件、执行Shell命令、搜索代码、调用API等。支持自定义工具和工具权限控制。",
+        "syntax": "oc tool [list|enable|disable|describe] [tool-name]",
+        "examples": [
+            {
+                "desc": "列出所有可用工具",
+                "cmd": "oc tool list"
+            },
+            {
+                "desc": "查看工具详情",
+                "cmd": "oc tool describe file-read"
+            }
+        ],
+        "tags": [
+            "工具",
+            "函数调用",
+            "执行",
+            "权限"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.agent",
+            "oc.mcp-server",
+            "oc.shell-exec"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.memory",
+        "name": "memory",
+        "aliases": [
+            "记忆",
+            "记忆系统",
+            "上下文记忆",
+            "持久记忆"
+        ],
+        "category": "openclaw",
+        "description": "记忆系统：管理Agent的持久化记忆，包括用户偏好、项目约定、历史决策等。支持短期工作记忆和长期持久记忆，帮助Agent在跨会话时保持一致性。",
+        "syntax": "oc memory [store|recall|list|forget|clear] [key] [value]",
+        "examples": [
+            {
+                "desc": "存储用户偏好",
+                "cmd": "oc memory store prefer-language typescript"
+            },
+            {
+                "desc": "查看所有记忆条目",
+                "cmd": "oc memory list"
+            }
+        ],
+        "tags": [
+            "记忆",
+            "持久化",
+            "上下文",
+            "偏好"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.session",
+            "oc.context-window",
+            "oc.knowledge-base"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.knowledge-base",
+        "name": "knowledge-base",
+        "aliases": [
+            "知识库",
+            "文档库",
+            "知识管理",
+            "RAG检索"
+        ],
+        "category": "openclaw",
+        "description": "知识库：管理和查询项目相关的文档、代码规范、API文档等知识资源。支持RAG(检索增强生成)模式，将知识库内容注入到Agent的上下文中，提高回答质量。",
+        "syntax": "oc kb [import|search|list|delete] [query|path]",
+        "examples": [
+            {
+                "desc": "导入文档到知识库",
+                "cmd": "oc kb import ./docs/api-reference.md"
+            },
+            {
+                "desc": "在知识库中搜索",
+                "cmd": "oc kb search 数据库连接配置"
+            }
+        ],
+        "tags": [
+            "知识库",
+            "RAG",
+            "文档",
+            "检索"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.memory",
+            "oc.context-window",
+            "oc.agent"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.code-review",
+        "name": "code-review",
+        "aliases": [
+            "代码审查",
+            "代码评审",
+            "CodeReview",
+            "审查代码"
+        ],
+        "category": "openclaw",
+        "description": "代码审查：对代码变更进行自动审查，检查代码质量、安全漏洞、性能问题、代码风格和最佳实践。支持PR审查、diff审查和全量代码审查模式。",
+        "syntax": "oc review [pr|diff|file|branch] [target]",
+        "examples": [
+            {
+                "desc": "审查PR变更",
+                "cmd": "oc review pr 123"
+            },
+            {
+                "desc": "审查指定文件",
+                "cmd": "oc review file src/app.ts"
+            }
+        ],
+        "tags": [
+            "代码审查",
+            "质量",
+            "安全",
+            "PR"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.debug",
+            "oc.refactor",
+            "oc.test-gen"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.debug",
+        "name": "debug",
+        "aliases": [
+            "调试",
+            "排错",
+            "Debug",
+            "错误分析"
+        ],
+        "category": "openclaw",
+        "description": "调试工具：帮助分析和定位代码中的bug，包括堆栈跟踪分析、变量检查、日志分析和错误模式识别。支持运行时调试和静态分析两种模式。",
+        "syntax": "oc debug [attach|analyze|trace] [target]",
+        "examples": [
+            {
+                "desc": "分析错误日志",
+                "cmd": "oc debug analyze ./logs/error.log"
+            },
+            {
+                "desc": "附加到运行中的进程",
+                "cmd": "oc debug attach --pid 12345"
+            }
+        ],
+        "tags": [
+            "调试",
+            "错误",
+            "堆栈",
+            "日志分析"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.code-review",
+            "oc.refactor",
+            "oc.logs"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.refactor",
+        "name": "refactor",
+        "aliases": [
+            "重构",
+            "代码重构",
+            "代码优化",
+            "结构优化"
+        ],
+        "category": "openclaw",
+        "description": "代码重构：自动分析和重构代码，包括提取函数、重命名变量、优化代码结构、消除重复代码、改善设计模式等。支持预览重构变更后再应用。",
+        "syntax": "oc refactor [extract|rename|optimize|pattern] [target]",
+        "examples": [
+            {
+                "desc": "提取函数到独立模块",
+                "cmd": "oc refactor extract src/utils.ts --function processData"
+            },
+            {
+                "desc": "批量重命名变量",
+                "cmd": "oc refactor rename oldVarName newVarName --scope project"
+            }
+        ],
+        "tags": [
+            "重构",
+            "优化",
+            "代码质量",
+            "设计模式"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.code-review",
+            "oc.debug",
+            "oc.test-gen"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "oc.test-gen",
+        "name": "test-gen",
+        "aliases": [
+            "测试生成",
+            "自动测试",
+            "单元测试",
+            "测试用例"
+        ],
+        "category": "openclaw",
+        "description": "测试生成：自动为代码生成单元测试、集成测试和端到端测试。支持多种测试框架(Jest、Pytest、JUnit等)，可分析现有代码逻辑生成有意义的测试用例。",
+        "syntax": "oc test [generate|run|coverage|report] [target]",
+        "examples": [
+            {
+                "desc": "为模块生成单元测试",
+                "cmd": "oc test generate src/services/auth.ts --framework jest"
+            },
+            {
+                "desc": "运行测试并生成覆盖率报告",
+                "cmd": "oc test run --coverage"
+            }
+        ],
+        "tags": [
+            "测试",
+            "单元测试",
+            "覆盖率",
+            "自动化"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.code-review",
+            "oc.refactor",
+            "oc.debug"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.config",
+        "name": "config",
+        "aliases": [
+            "配置",
+            "设置",
+            "全局配置",
+            "用户配置"
+        ],
+        "category": "openclaw",
+        "description": "配置管理：管理OpenClaw的全局和项目级配置，包括模型参数、行为设置、界面主题、快捷键等。配置采用层级覆盖机制：默认设置小于用户设置小于项目设置。",
+        "syntax": "oc config [get|set|list|reset] [key] [value]",
+        "examples": [
+            {
+                "desc": "查看当前配置",
+                "cmd": "oc config list"
+            },
+            {
+                "desc": "设置默认模型",
+                "cmd": "oc config set model.default claude-sonnet-4"
+            }
+        ],
+        "tags": [
+            "配置",
+            "设置",
+            "参数",
+            "自定义"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.model-select",
+            "oc.api-key",
+            "oc.project"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.model-select",
+        "name": "model-select",
+        "aliases": [
+            "模型选择",
+            "模型切换",
+            "AI模型",
+            "大模型"
+        ],
+        "category": "openclaw",
+        "description": "模型选择：选择和管理AI模型，支持Claude、GPT、DeepSeek等多种主流大模型。可根据任务类型自动推荐最适合的模型，在成本、速度和效果之间取得平衡。",
+        "syntax": "oc model [list|set|info|compare] [model-name]",
+        "examples": [
+            {
+                "desc": "列出所有可用模型",
+                "cmd": "oc model list"
+            },
+            {
+                "desc": "切换到指定模型",
+                "cmd": "oc model set deepseek-v3"
+            }
+        ],
+        "tags": [
+            "模型",
+            "AI",
+            "选择"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.config",
+            "oc.api-key",
+            "oc.agent"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.api-key",
+        "name": "api-key",
+        "aliases": [
+            "API密钥",
+            "密钥管理",
+            "认证",
+            "Token管理"
+        ],
+        "category": "openclaw",
+        "description": "API密钥管理：安全地存储和管理AI服务提供商的API密钥。支持加密存储、环境变量注入、密钥轮换和多提供商密钥配置。密钥始终加密存储，不会出现在日志中。",
+        "syntax": "oc apikey [add|list|remove|rotate] [provider]",
+        "examples": [
+            {
+                "desc": "添加Anthropic API密钥",
+                "cmd": "oc apikey add anthropic --key sk-ant-xxx"
+            },
+            {
+                "desc": "列出已配置的API密钥",
+                "cmd": "oc apikey list"
+            }
+        ],
+        "tags": [
+            "API密钥",
+            "安全",
+            "认证",
+            "加密"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.config",
+            "oc.model-select",
+            "oc.rate-limit"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.git-integration",
+        "name": "git-integration",
+        "aliases": [
+            "Git集成",
+            "版本控制",
+            "Git操作",
+            "代码提交"
+        ],
+        "category": "openclaw",
+        "description": "Git集成：在Agent中直接进行Git操作，包括提交变更、创建分支、推送代码、查看差异、解决冲突等。Agent可自动生成有意义的提交信息并遵循项目的提交规范。",
+        "syntax": "oc git [commit|branch|diff|push|pr] [options]",
+        "examples": [
+            {
+                "desc": "自动生成提交信息并提交",
+                "cmd": "oc git commit --auto-message"
+            },
+            {
+                "desc": "创建PR并添加描述",
+                "cmd": "oc git pr --title 修复登录页样式问题"
+            }
+        ],
+        "tags": [
+            "Git",
+            "版本控制",
+            "提交",
+            "分支"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.code-review",
+            "oc.workspace",
+            "oc.webhook"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.webhook",
+        "name": "webhook",
+        "aliases": [
+            "Web钩子",
+            "Webhook",
+            "事件通知",
+            "回调"
+        ],
+        "category": "openclaw",
+        "description": "Web钩子：配置事件驱动的自动化触发器，当代码推送、PR创建、Issue更新等事件发生时自动执行Agent任务。支持自定义Webhook端点和事件过滤规则。",
+        "syntax": "oc webhook [create|list|delete|trigger] [event]",
+        "examples": [
+            {
+                "desc": "创建PR自动审查Webhook",
+                "cmd": "oc webhook create on-pr-opened --action oc review pr"
+            },
+            {
+                "desc": "列出所有Webhook",
+                "cmd": "oc webhook list"
+            }
+        ],
+        "tags": [
+            "Webhook",
+            "事件",
+            "自动化",
+            "触发"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.git-integration",
+            "oc.workflow",
+            "oc.mcp-server"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.mcp-server",
+        "name": "mcp-server",
+        "aliases": [
+            "MCP服务器",
+            "模型上下文协议",
+            "外部工具",
+            "插件服务"
+        ],
+        "category": "openclaw",
+        "description": "MCP服务器：通过Model Context Protocol(模型上下文协议)连接外部工具和服务，扩展Agent的能力边界。支持社区和自定义MCP服务器，实现数据库查询、API调用、文件系统操作等。",
+        "syntax": "oc mcp [install|start|stop|list|config] [server-name]",
+        "examples": [
+            {
+                "desc": "安装MCP服务器",
+                "cmd": "oc mcp install @anthropic/mcp-server-filesystem"
+            },
+            {
+                "desc": "列出已安装的MCP服务器",
+                "cmd": "oc mcp list"
+            }
+        ],
+        "tags": [
+            "MCP",
+            "协议",
+            "扩展",
+            "工具集成"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.tool-call",
+            "oc.plugin",
+            "oc.agent"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "oc.workflow",
+        "name": "workflow",
+        "aliases": [
+            "工作流",
+            "流程自动化",
+            "流水线",
+            "自动化流程"
+        ],
+        "category": "openclaw",
+        "description": "工作流：定义和执行多步骤的自动化开发流程，如代码生成、测试、审查、部署等环节的流水线。支持可视化编排和条件分支，可结合CI/CD系统使用。",
+        "syntax": "oc workflow [create|run|list|edit|delete] [workflow-name]",
+        "examples": [
+            {
+                "desc": "创建自动化发布工作流",
+                "cmd": "oc workflow create release-flow --steps test,build,deploy,notify"
+            },
+            {
+                "desc": "运行指定工作流",
+                "cmd": "oc workflow run release-flow"
+            }
+        ],
+        "tags": [
+            "工作流",
+            "自动化",
+            "流水线",
+            "编排"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.webhook",
+            "oc.task-delegation",
+            "oc.parallel-execution"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "oc.task-delegation",
+        "name": "task-delegation",
+        "aliases": [
+            "任务委派",
+            "任务分配",
+            "子任务",
+            "Agent协作"
+        ],
+        "category": "openclaw",
+        "description": "任务委派：将复杂任务拆解并分派给多个子Agent并行或串行执行。主Agent负责任务规划、委派和结果汇总，子Agent专注于各自领域的任务执行。",
+        "syntax": "oc delegate [task] [agent-name] [options]",
+        "examples": [
+            {
+                "desc": "将测试任务委派给测试Agent",
+                "cmd": "oc delegate 为支付模块编写测试 --agent test-expert"
+            },
+            {
+                "desc": "查看任务执行状态",
+                "cmd": "oc delegate status task_001"
+            }
+        ],
+        "tags": [
+            "委派",
+            "任务分解",
+            "协作",
+            "多Agent"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.agent",
+            "oc.parallel-execution",
+            "oc.workflow"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "oc.parallel-execution",
+        "name": "parallel-execution",
+        "aliases": [
+            "并行执行",
+            "并发处理",
+            "多任务",
+            "并行任务"
+        ],
+        "category": "openclaw",
+        "description": "并行执行：同时运行多个独立的Agent任务，充分利用计算资源，大幅缩短总体执行时间。适用于可并行的独立子任务，如同时审查多个文件、批量生成测试等。",
+        "syntax": "oc parallel [task1] [task2] ... [taskN]",
+        "examples": [
+            {
+                "desc": "并行审查多个文件",
+                "cmd": "oc parallel oc review file a.ts oc review file b.ts oc review file c.ts"
+            },
+            {
+                "desc": "批量并行生成测试",
+                "cmd": "oc parallel --batch test-gen src/services/*.ts"
+            }
+        ],
+        "tags": [
+            "并行",
+            "并发",
+            "性能",
+            "批处理"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.task-delegation",
+            "oc.workflow",
+            "oc.agent"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "oc.context-window",
+        "name": "context-window",
+        "aliases": [
+            "上下文窗口",
+            "上下文长度",
+            "Token限制",
+            "上下文管理"
+        ],
+        "category": "openclaw",
+        "description": "上下文窗口：管理Agent的上下文窗口大小和使用策略。包括上下文压缩、自动摘要、选择性记忆加载等功能，在保持对话连贯性的同时最大化有效信息的利用。",
+        "syntax": "oc context [info|compact|expand|auto] [options]",
+        "examples": [
+            {
+                "desc": "查看当前上下文使用情况",
+                "cmd": "oc context info"
+            },
+            {
+                "desc": "压缩当前上下文保留关键信息",
+                "cmd": "oc context compact --keep-summary"
+            }
+        ],
+        "tags": [
+            "上下文",
+            "窗口",
+            "压缩",
+            "管理"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.memory",
+            "oc.token-usage",
+            "oc.session"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.prompt-engineering",
+        "name": "prompt-engineering",
+        "aliases": [
+            "提示词工程",
+            "提示词模板",
+            "提示词优化",
+            "SystemPrompt"
+        ],
+        "category": "openclaw",
+        "description": "提示词工程：创建和管理系统提示词、用户提示词模板。支持提示词版本管理、A/B测试、效果评估和自动优化，帮助用户获得更精准的Agent输出。",
+        "syntax": "oc prompt [create|edit|test|list|optimize] [template-name]",
+        "examples": [
+            {
+                "desc": "创建代码生成提示词模板",
+                "cmd": "oc prompt create code-gen --template 你是一位经验丰富的TypeScript开发者"
+            },
+            {
+                "desc": "测试提示词效果",
+                "cmd": "oc prompt test code-gen --input 创建一个REST API接口"
+            }
+        ],
+        "tags": [
+            "提示词",
+            "模板",
+            "优化",
+            "SystemPrompt"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.agent",
+            "oc.token-usage",
+            "oc.context-window"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "oc.token-usage",
+        "name": "token-usage",
+        "aliases": [
+            "Token用量",
+            "Token统计",
+            "用量监控",
+            "费用统计"
+        ],
+        "category": "openclaw",
+        "description": "Token用量：监控和统计Token消耗情况，包括输入Token、输出Token、缓存命中Token的详细分类。支持按项目、会话、日期等维度查看用量报告和费用预估。",
+        "syntax": "oc token [usage|report|budget|limit] [options]",
+        "examples": [
+            {
+                "desc": "查看当前会话Token用量",
+                "cmd": "oc token usage --session"
+            },
+            {
+                "desc": "生成月度用量报告",
+                "cmd": "oc token report --month 4"
+            }
+        ],
+        "tags": [
+            "Token",
+            "用量",
+            "费用",
+            "统计"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.context-window",
+            "oc.rate-limit",
+            "oc.config"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.rate-limit",
+        "name": "rate-limit",
+        "aliases": [
+            "速率限制",
+            "频率限制",
+            "并发限制",
+            "API限流"
+        ],
+        "category": "openclaw",
+        "description": "速率限制：查看和管理API调用速率限制，包括请求频率、并发数、Token速率等多维度的限制策略。支持智能排队、自动重试和限流预警功能。",
+        "syntax": "oc ratelimit [status|set|reset|bypass] [options]",
+        "examples": [
+            {
+                "desc": "查看当前速率限制状态",
+                "cmd": "oc ratelimit status"
+            },
+            {
+                "desc": "设置每分钟最大请求数",
+                "cmd": "oc ratelimit set --rpm 60"
+            }
+        ],
+        "tags": [
+            "速率限制",
+            "限流",
+            "并发",
+            "队列"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.token-usage",
+            "oc.config",
+            "oc.api-key"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.plugin",
+        "name": "plugin",
+        "aliases": [
+            "插件",
+            "扩展",
+            "插件系统",
+            "功能扩展"
+        ],
+        "category": "openclaw",
+        "description": "插件系统：安装和管理OpenClaw插件，扩展IDE集成、自定义工具、主题界面等功能。支持社区插件市场和私有插件开发，通过插件API实现深度集成。",
+        "syntax": "oc plugin [install|uninstall|list|update|search] [plugin-name]",
+        "examples": [
+            {
+                "desc": "搜索VSCode集成插件",
+                "cmd": "oc plugin search vscode"
+            },
+            {
+                "desc": "安装插件",
+                "cmd": "oc plugin install openclaw-plugin-vscode"
+            }
+        ],
+        "tags": [
+            "插件",
+            "扩展",
+            "生态",
+            "集成"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.mcp-server",
+            "oc.config",
+            "oc.tool-call"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.sandbox",
+        "name": "sandbox",
+        "aliases": [
+            "沙箱",
+            "安全沙箱",
+            "隔离环境",
+            "安全执行"
+        ],
+        "category": "openclaw",
+        "description": "沙箱安全：在隔离的安全环境中执行代码和命令，防止Agent操作对系统造成意外影响。支持Docker容器沙箱、网络隔离、文件系统只读挂载等安全策略。",
+        "syntax": "oc sandbox [enable|disable|config|status] [options]",
+        "examples": [
+            {
+                "desc": "启用Docker沙箱模式",
+                "cmd": "oc sandbox enable --mode docker"
+            },
+            {
+                "desc": "查看沙箱状态",
+                "cmd": "oc sandbox status"
+            }
+        ],
+        "tags": [
+            "沙箱",
+            "安全",
+            "隔离",
+            "Docker"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.shell-exec",
+            "oc.config",
+            "oc.file-ops"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "oc.file-ops",
+        "name": "file-ops",
+        "aliases": [
+            "文件操作",
+            "文件管理",
+            "读写文件",
+            "文件搜索"
+        ],
+        "category": "openclaw",
+        "description": "文件操作：Agent对工作区内的文件进行读取、写入、编辑、搜索等操作。支持正则搜索、批量替换、文件模板生成和代码片段插入等功能，所有操作记录可追溯。",
+        "syntax": "oc file [read|write|edit|search|watch] [path|pattern]",
+        "examples": [
+            {
+                "desc": "在工作区搜索代码模式",
+                "cmd": "oc file search --pattern 'function\\s+\\w+\\(' --type ts"
+            },
+            {
+                "desc": "监听文件变更",
+                "cmd": "oc file watch src/ --on-change oc test run"
+            }
+        ],
+        "tags": [
+            "文件",
+            "搜索",
+            "编辑",
+            "读写"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.shell-exec",
+            "oc.workspace",
+            "oc.sandbox"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.shell-exec",
+        "name": "shell-exec",
+        "aliases": [
+            "Shell执行",
+            "命令行执行",
+            "终端命令",
+            "脚本执行"
+        ],
+        "category": "openclaw",
+        "description": "Shell执行：Agent在受控环境中执行Shell命令。支持命令审批流程、超时控制、输出捕获和环境变量注入。可在Linux Bash、macOS Zsh和Windows PowerShell环境中执行。",
+        "syntax": "oc shell [exec|script|approve] [command|script-path]",
+        "examples": [
+            {
+                "desc": "执行Shell命令",
+                "cmd": "oc shell exec npm run build"
+            },
+            {
+                "desc": "执行Shell脚本",
+                "cmd": "oc shell script ./deploy.sh --env production"
+            }
+        ],
+        "tags": [
+            "Shell",
+            "命令行",
+            "终端",
+            "脚本"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.file-ops",
+            "oc.sandbox",
+            "oc.tool-call"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.auto-complete",
+        "name": "auto-complete",
+        "aliases": [
+            "自动补全",
+            "代码补全",
+            "智能提示",
+            "Tab补全"
+        ],
+        "category": "openclaw",
+        "description": "自动补全：在Agent对话和代码编辑中提供智能补全建议，包括命令补全、参数提示、文件路径补全和代码片段推荐。支持上下文感知的补全排序和自定义补全源。",
+        "syntax": "oc autocomplete [enable|disable|config|source] [options]",
+        "examples": [
+            {
+                "desc": "启用代码补全",
+                "cmd": "oc autocomplete enable --scope code"
+            },
+            {
+                "desc": "配置补全触发方式",
+                "cmd": "oc autocomplete config --trigger auto --delay 300ms"
+            }
+        ],
+        "tags": [
+            "补全",
+            "自动",
+            "提示",
+            "智能"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.config",
+            "oc.prompt-engineering",
+            "oc.tool-call"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.logs",
+        "name": "logs",
+        "aliases": [
+            "日志",
+            "日志管理",
+            "操作记录",
+            "审计日志"
+        ],
+        "category": "openclaw",
+        "description": "日志与监控：查看和管理Agent的操作日志，包括工具调用记录、API请求日志、错误日志和性能指标。支持日志过滤、导出和实时跟踪，方便问题排查和审计。",
+        "syntax": "oc logs [view|tail|export|clear|analyze] [options]",
+        "examples": [
+            {
+                "desc": "实时跟踪日志",
+                "cmd": "oc logs tail --level error"
+            },
+            {
+                "desc": "导出操作日志",
+                "cmd": "oc logs export --from 2026-04-01 --to 2026-04-30 --format json"
+            }
+        ],
+        "tags": [
+            "日志",
+            "监控",
+            "审计",
+            "排查"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.debug",
+            "oc.token-usage",
+            "oc.session"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "oc.vision",
+        "name": "vision",
+        "aliases": [
+            "视觉理解",
+            "图像分析",
+            "截图分析",
+            "UI识别"
+        ],
+        "category": "openclaw",
+        "description": "视觉理解：支持Agent分析和理解图像内容，包括UI截图识别、架构图解析、代码流程图理解等。可结合视觉能力进行前端页面自动审查和UI Bug检测。",
+        "syntax": "oc vision [analyze|describe|compare] [image-path|url]",
+        "examples": [
+            {
+                "desc": "分析UI截图中的布局问题",
+                "cmd": "oc vision analyze ./screenshots/dashboard.png --task layout-review"
+            },
+            {
+                "desc": "描述图片内容",
+                "cmd": "oc vision describe https://example.com/arch-diagram.png"
+            }
+        ],
+        "tags": [
+            "视觉",
+            "图像",
+            "截图",
+            "UI分析"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.code-review",
+            "oc.debug",
+            "oc.agent"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "oc.batch-mode",
+        "name": "batch-mode",
+        "aliases": [
+            "批处理",
+            "批量模式",
+            "离线执行",
+            "后台任务"
+        ],
+        "category": "openclaw",
+        "description": "批量模式：以非交互方式批量执行Agent任务，适合CI/CD集成、定时任务和大量文件处理等场景。支持任务队列、进度追踪和结果汇总报告。",
+        "syntax": "oc batch [submit|status|cancel|results] [task-file|task-id]",
+        "examples": [
+            {
+                "desc": "提交批量审查任务",
+                "cmd": "oc batch submit --tasks batch-review.json"
+            },
+            {
+                "desc": "查看批量任务进度",
+                "cmd": "oc batch status --all"
+            }
+        ],
+        "tags": [
+            "批处理",
+            "离线",
+            "CI/CD",
+            "自动化"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "oc.workflow",
+            "oc.parallel-execution",
+            "oc.logs"
+        ],
+        "difficulty": "intermediate"
+    }
+]

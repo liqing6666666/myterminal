@@ -1,0 +1,369 @@
+[
+    {
+        "id": "ext.cc.context-strategy",
+        "name": "上下文管理策略",
+        "aliases": [
+            "上下文",
+            "context",
+            "对话策略",
+            "token管理"
+        ],
+        "category": "claude-code",
+        "description": "高效管理 Claude Code 对话上下文的策略：定期 /compact 压缩历史、用 /init 指定项目上下文、善用 /add-dir 精确控制文件范围",
+        "syntax": "/compact 或 /init 或 /add-dir <目录>",
+        "examples": [
+            {
+                "desc": "压缩对话历史释放 token",
+                "cmd": "/compact"
+            },
+            {
+                "desc": "初始化项目上下文",
+                "cmd": "/init"
+            },
+            {
+                "desc": "添加指定目录到上下文",
+                "cmd": "/add-dir src/components"
+            }
+        ],
+        "tags": [
+            "上下文",
+            "优化",
+            "token"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.add-dir",
+            "cc.init",
+            "cc.clear"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.cc.mcp-patterns",
+        "name": "MCP 工具链集成模式",
+        "aliases": [
+            "MCP",
+            "工具链",
+            "外部工具",
+            "集成"
+        ],
+        "category": "claude-code",
+        "description": "通过 MCP (Model Context Protocol) 将外部工具和 API 接入 Claude Code，实现文件系统操作、数据库查询、浏览器测试等扩展功能",
+        "syntax": "/mcp 或通过 claude.dev/mcp 配置 MCP 服务器",
+        "examples": [
+            {
+                "desc": "查看已连接的 MCP 服务器",
+                "cmd": "/mcp"
+            },
+            {
+                "desc": "在设置中配置 MCP 服务器",
+                "cmd": "参考 https://docs.anthropic.com/en/docs/claude-code/mcp"
+            }
+        ],
+        "tags": [
+            "MCP",
+            "集成",
+            "扩展"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.mcp"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "ext.cc.code-review-workflow",
+        "name": "代码审查工作流",
+        "aliases": [
+            "审查流程",
+            "code review",
+            "PR审查",
+            "安全审查"
+        ],
+        "category": "claude-code",
+        "description": "使用 /review 和 /security-review 进行代码审查的最佳实践：先全局概览再逐文件检查，结合 /pr-comments 生成审查意见",
+        "syntax": "/review 或 /security-review",
+        "examples": [
+            {
+                "desc": "审查当前分支代码变更",
+                "cmd": "/review"
+            },
+            {
+                "desc": "安全审查变更",
+                "cmd": "/security-review"
+            },
+            {
+                "desc": "生成 PR 评论",
+                "cmd": "/pr-comments"
+            }
+        ],
+        "tags": [
+            "审查",
+            "工作流",
+            "PR"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.review",
+            "cc.security-review",
+            "cc.pr-comments"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.cc.model-selection",
+        "name": "模型选择策略",
+        "aliases": [
+            "模型",
+            "切换模型",
+            "model",
+            "模型选择"
+        ],
+        "category": "claude-code",
+        "description": "根据任务复杂度选择合适的模型：简单任务用 Haiku（快速便宜），复杂任务用 Opus（推理更强），日常用 Sonnet 平衡",
+        "syntax": "/model <模型名>",
+        "examples": [
+            {
+                "desc": "切换到 Opus 处理复杂重构",
+                "cmd": "/model opus"
+            },
+            {
+                "desc": "切换到 Haiku 做简单修改",
+                "cmd": "/model haiku"
+            },
+            {
+                "desc": "查看当前模型",
+                "cmd": "/model"
+            }
+        ],
+        "tags": [
+            "模型",
+            "优化",
+            "成本"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.model",
+            "cc.cost"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "ext.cc.debug-workflow",
+        "name": "调试工作流",
+        "aliases": [
+            "调试",
+            "bug",
+            "debug",
+            "排查"
+        ],
+        "category": "claude-code",
+        "description": "用 Claude Code 高效调试：描述问题现象 → 提供错误日志 → 指定相关文件 → 让 AI 分析根因并修复",
+        "syntax": "直接描述问题，附上错误信息和相关文件路径",
+        "examples": [
+            {
+                "desc": "报告异常并请求分析",
+                "cmd": "这个文件运行时报错 TypeError: xxx is not a function，帮我分析原因"
+            },
+            {
+                "desc": "查看错误日志",
+                "cmd": "请检查 terminal 输出的错误信息"
+            }
+        ],
+        "tags": [
+            "调试",
+            "错误",
+            "排查"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.review"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.cc.settings-tips",
+        "name": "设置与优化技巧",
+        "aliases": [
+            "设置",
+            "配置",
+            "优化",
+            "settings"
+        ],
+        "category": "claude-code",
+        "description": "Claude Code 常用设置优化：调整输出风格、权限控制、状态栏配置等，让使用体验更顺手",
+        "syntax": "/config 或 /statusline 或 /theme",
+        "examples": [
+            {
+                "desc": "打开配置菜单",
+                "cmd": "/config"
+            },
+            {
+                "desc": "设置状态栏显示",
+                "cmd": "/statusline"
+            },
+            {
+                "desc": "切换主题",
+                "cmd": "/theme"
+            }
+        ],
+        "tags": [
+            "设置",
+            "优化",
+            "配置"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.config",
+            "cc.statusline",
+            "cc.theme"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.cc.output-style",
+        "name": "输出风格控制",
+        "aliases": [
+            "输出格式",
+            "回复风格",
+            "简洁模式"
+        ],
+        "category": "claude-code",
+        "description": "控制 Claude Code 的回复风格：精简模式适合快速操作，详细模式适合学习理解，代码模式只输出代码",
+        "syntax": "/output-style <风格>",
+        "examples": [
+            {
+                "desc": "设置精简输出",
+                "cmd": "/output-style concise"
+            },
+            {
+                "desc": "设置默认风格",
+                "cmd": "/output-style default"
+            }
+        ],
+        "tags": [
+            "输出",
+            "风格",
+            "设置"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.config",
+            "cc.theme"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "ext.cc.batch-tasks",
+        "name": "批量任务处理",
+        "aliases": [
+            "批量",
+            "多任务",
+            "worktree",
+            "并行"
+        ],
+        "category": "claude-code",
+        "description": "利用 worktree 隔离和 /init 分别配置，处理多个独立任务，避免上下文混淆",
+        "syntax": "/worktree 创建隔离分支，在每个 worktree 中处理一个独立任务",
+        "examples": [
+            {
+                "desc": "创建隔离工作区",
+                "cmd": "/worktree"
+            },
+            {
+                "desc": "在一个 worktree 中修复 bug A",
+                "cmd": "描述 bug A 并要求修复"
+            },
+            {
+                "desc": "在另一个 worktree 中开发 feature B",
+                "cmd": "描述 feature B 要求并实现"
+            }
+        ],
+        "tags": [
+            "批量",
+            "并行",
+            "worktree"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.worktree",
+            "cc.init"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "ext.cc.troubleshoot",
+        "name": "故障排查命令",
+        "aliases": [
+            "故障",
+            "问题排查",
+            "doctor",
+            "诊断"
+        ],
+        "category": "claude-code",
+        "description": "Claude Code 出问题时的排查步骤：/doctor 诊断、/update 升级、/login 重新认证",
+        "syntax": "/doctor | /update | /login",
+        "examples": [
+            {
+                "desc": "诊断 Claude Code 问题",
+                "cmd": "/doctor"
+            },
+            {
+                "desc": "更新到最新版本",
+                "cmd": "/update"
+            },
+            {
+                "desc": "重新登录认证",
+                "cmd": "/login"
+            }
+        ],
+        "tags": [
+            "故障",
+            "诊断",
+            "修复"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "cc.doctor",
+            "cc.update",
+            "cc.login"
+        ],
+        "difficulty": "beginner"
+    }
+]

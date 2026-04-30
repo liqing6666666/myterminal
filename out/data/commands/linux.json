@@ -1,0 +1,3185 @@
+[
+    {
+        "id": "lnx.find",
+        "name": "find",
+        "aliases": [
+            "查找",
+            "搜索文件",
+            "找文件",
+            "find命令"
+        ],
+        "category": "linux",
+        "description": "在指定目录下递归搜索文件，支持按名称、类型、大小、时间等条件过滤",
+        "syntax": "find [路径] [表达式]",
+        "examples": [
+            {
+                "desc": "在当前目录查找所有 .txt 文件",
+                "cmd": "find . -name \"*.txt\""
+            },
+            {
+                "desc": "查找大于 100MB 的文件",
+                "cmd": "find / -size +100M"
+            },
+            {
+                "desc": "查找最近 7 天内修改过的文件",
+                "cmd": "find . -mtime -7"
+            }
+        ],
+        "tags": [
+            "文件查找",
+            "搜索",
+            "文件系统"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.locate",
+            "lnx.grep"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.grep",
+        "name": "grep",
+        "aliases": [
+            "搜索文本",
+            "文本搜索",
+            "过滤",
+            "grep命令"
+        ],
+        "category": "linux",
+        "description": "在文件或输入中搜索匹配指定模式的行，支持正则表达式",
+        "syntax": "grep [选项] 模式 [文件...]",
+        "examples": [
+            {
+                "desc": "在文件中搜索包含关键字的内容",
+                "cmd": "grep \"error\" /var/log/syslog"
+            },
+            {
+                "desc": "递归搜索目录中所有文件",
+                "cmd": "grep -r \"TODO\" ./src/"
+            },
+            {
+                "desc": "不区分大小写搜索并显示行号",
+                "cmd": "grep -in \"warning\" app.log"
+            }
+        ],
+        "tags": [
+            "文本搜索",
+            "过滤",
+            "正则表达式",
+            "日志分析"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.awk",
+            "lnx.sed",
+            "lnx.find"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.ls",
+        "name": "ls",
+        "aliases": [
+            "列出文件",
+            "查看目录",
+            "文件列表",
+            "ls命令"
+        ],
+        "category": "linux",
+        "description": "列出目录内容，显示文件和子目录的信息",
+        "syntax": "ls [选项] [路径...]",
+        "examples": [
+            {
+                "desc": "列出当前目录所有文件（含隐藏文件）",
+                "cmd": "ls -la"
+            },
+            {
+                "desc": "按修改时间排序显示",
+                "cmd": "ls -lt"
+            },
+            {
+                "desc": "以人类可读的大小格式列出文件",
+                "cmd": "ls -lh"
+            }
+        ],
+        "tags": [
+            "文件列表",
+            "目录浏览",
+            "文件权限"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.stat",
+            "lnx.tree"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.cp",
+        "name": "cp",
+        "aliases": [
+            "复制",
+            "拷贝",
+            "复制文件",
+            "cp命令"
+        ],
+        "category": "linux",
+        "description": "复制文件或目录到目标位置",
+        "syntax": "cp [选项] 源文件 目标文件",
+        "examples": [
+            {
+                "desc": "复制文件到指定路径",
+                "cmd": "cp file.txt /backup/file.txt"
+            },
+            {
+                "desc": "递归复制整个目录",
+                "cmd": "cp -r /src/dir /dst/dir"
+            },
+            {
+                "desc": "复制时保留文件属性",
+                "cmd": "cp -p source.txt dest.txt"
+            }
+        ],
+        "tags": [
+            "文件复制",
+            "备份",
+            "文件操作"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.mv",
+            "lnx.rm",
+            "lnx.rsync"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.mv",
+        "name": "mv",
+        "aliases": [
+            "移动",
+            "重命名",
+            "移动文件",
+            "mv命令"
+        ],
+        "category": "linux",
+        "description": "移动文件/目录或重命名文件/目录",
+        "syntax": "mv [选项] 源文件 目标文件",
+        "examples": [
+            {
+                "desc": "将文件移动到目标目录",
+                "cmd": "mv file.txt /target/dir/"
+            },
+            {
+                "desc": "重命名文件",
+                "cmd": "mv oldname.txt newname.txt"
+            },
+            {
+                "desc": "移动前提示确认",
+                "cmd": "mv -i file.txt /target/dir/"
+            }
+        ],
+        "tags": [
+            "文件移动",
+            "重命名",
+            "文件操作"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.cp",
+            "lnx.rm",
+            "lnx.rename"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.rm",
+        "name": "rm",
+        "aliases": [
+            "删除",
+            "删除文件",
+            "移除",
+            "rm命令"
+        ],
+        "category": "linux",
+        "description": "删除文件或目录，支持递归删除和强制删除",
+        "syntax": "rm [选项] 文件...",
+        "examples": [
+            {
+                "desc": "删除单个文件",
+                "cmd": "rm file.txt"
+            },
+            {
+                "desc": "递归强制删除目录及其内容",
+                "cmd": "rm -rf /tmp/oldfiles/"
+            },
+            {
+                "desc": "删除前逐一确认",
+                "cmd": "rm -i *.log"
+            }
+        ],
+        "tags": [
+            "文件删除",
+            "清理",
+            "磁盘空间"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.rmdir",
+            "lnx.cp",
+            "lnx.mv"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.chmod",
+        "name": "chmod",
+        "aliases": [
+            "权限",
+            "修改权限",
+            "文件权限",
+            "chmod命令"
+        ],
+        "category": "linux",
+        "description": "修改文件或目录的访问权限（读、写、执行）",
+        "syntax": "chmod [选项] 权限模式 文件...",
+        "examples": [
+            {
+                "desc": "设置文件为所有者可读写执行",
+                "cmd": "chmod 755 script.sh"
+            },
+            {
+                "desc": "给脚本添加执行权限",
+                "cmd": "chmod +x run.sh"
+            },
+            {
+                "desc": "递归修改目录下所有文件权限",
+                "cmd": "chmod -R 644 /var/www/html/"
+            }
+        ],
+        "tags": [
+            "文件权限",
+            "安全",
+            "文件属性"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.chown",
+            "lnx.ls",
+            "lnx.umask"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.chown",
+        "name": "chown",
+        "aliases": [
+            "所有者",
+            "修改所有者",
+            "更改所属",
+            "chown命令"
+        ],
+        "category": "linux",
+        "description": "修改文件或目录的所有者和所属组",
+        "syntax": "chown [选项] [所有者][:组] 文件...",
+        "examples": [
+            {
+                "desc": "将文件所有者改为指定用户",
+                "cmd": "chown john file.txt"
+            },
+            {
+                "desc": "同时修改所有者和组",
+                "cmd": "chown john:admin file.txt"
+            },
+            {
+                "desc": "递归修改目录下所有文件所有者",
+                "cmd": "chown -R www-data:www-data /var/www/"
+            }
+        ],
+        "tags": [
+            "文件所有者",
+            "权限管理",
+            "用户管理"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.chmod",
+            "lnx.groups",
+            "lnx.useradd"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.ln",
+        "name": "ln",
+        "aliases": [
+            "链接",
+            "硬链接",
+            "软链接",
+            "符号链接",
+            "ln命令"
+        ],
+        "category": "linux",
+        "description": "创建文件之间的硬链接或符号链接（软链接）",
+        "syntax": "ln [选项] 目标 链接名",
+        "examples": [
+            {
+                "desc": "创建符号链接（软链接）",
+                "cmd": "ln -s /usr/bin/python3 /usr/bin/python"
+            },
+            {
+                "desc": "创建硬链接",
+                "cmd": "ln original.txt hardlink.txt"
+            },
+            {
+                "desc": "强制覆盖已有的链接文件",
+                "cmd": "ln -sf /new/target linkname"
+            }
+        ],
+        "tags": [
+            "链接",
+            "符号链接",
+            "文件系统"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.ls",
+            "lnx.stat",
+            "lnx.readlink"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.stat",
+        "name": "stat",
+        "aliases": [
+            "文件信息",
+            "文件属性",
+            "查看文件状态",
+            "stat命令"
+        ],
+        "category": "linux",
+        "description": "显示文件或文件系统的详细状态信息，包括大小、权限、时间戳等",
+        "syntax": "stat [选项] 文件...",
+        "examples": [
+            {
+                "desc": "查看文件的详细状态信息",
+                "cmd": "stat file.txt"
+            },
+            {
+                "desc": "以简洁格式显示文件信息",
+                "cmd": "stat -c \"%s %n\" file.txt"
+            },
+            {
+                "desc": "查看文件系统状态",
+                "cmd": "stat -f /home"
+            }
+        ],
+        "tags": [
+            "文件属性",
+            "文件系统",
+            "调试"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.ls",
+            "lnx.file"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.touch",
+        "name": "touch",
+        "aliases": [
+            "创建文件",
+            "更新时间戳",
+            "新建文件",
+            "touch命令"
+        ],
+        "category": "linux",
+        "description": "创建空文件或更新文件的访问和修改时间戳",
+        "syntax": "touch [选项] 文件...",
+        "examples": [
+            {
+                "desc": "创建新的空文件",
+                "cmd": "touch newfile.txt"
+            },
+            {
+                "desc": "更新多个文件的时间戳",
+                "cmd": "touch file1.txt file2.txt"
+            },
+            {
+                "desc": "指定文件的修改时间",
+                "cmd": "touch -t 202501011200 file.txt"
+            }
+        ],
+        "tags": [
+            "文件创建",
+            "时间戳",
+            "文件操作"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.mkdir",
+            "lnx.stat",
+            "lnx.cat"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.mkdir",
+        "name": "mkdir",
+        "aliases": [
+            "创建目录",
+            "新建文件夹",
+            "mkdir命令"
+        ],
+        "category": "linux",
+        "description": "创建新目录，支持递归创建多级目录",
+        "syntax": "mkdir [选项] 目录名...",
+        "examples": [
+            {
+                "desc": "创建单个目录",
+                "cmd": "mkdir myfolder"
+            },
+            {
+                "desc": "递归创建多级目录",
+                "cmd": "mkdir -p /home/user/projects/myapp/src"
+            },
+            {
+                "desc": "创建目录并设置权限",
+                "cmd": "mkdir -m 755 public"
+            }
+        ],
+        "tags": [
+            "目录创建",
+            "文件夹",
+            "文件系统"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.rmdir",
+            "lnx.touch",
+            "lnx.ls"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.locate",
+        "name": "locate",
+        "aliases": [
+            "快速查找",
+            "定位文件",
+            "文件定位",
+            "locate命令"
+        ],
+        "category": "linux",
+        "description": "通过预建数据库快速查找文件路径，比 find 更快但依赖数据库更新",
+        "syntax": "locate [选项] 模式",
+        "examples": [
+            {
+                "desc": "快速查找所有 .conf 文件",
+                "cmd": "locate \"*.conf\""
+            },
+            {
+                "desc": "查找包含关键字的文件路径",
+                "cmd": "locate nginx"
+            },
+            {
+                "desc": "更新文件定位数据库",
+                "cmd": "sudo updatedb"
+            }
+        ],
+        "tags": [
+            "文件查找",
+            "快速搜索",
+            "数据库"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.find",
+            "lnx.updatedb"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.dd",
+        "name": "dd",
+        "aliases": [
+            "磁盘复制",
+            "镜像写入",
+            "数据转换",
+            "dd命令"
+        ],
+        "category": "linux",
+        "description": "低级数据复制和转换工具，常用于创建磁盘镜像和备份",
+        "syntax": "dd if=输入文件 of=输出文件 [选项]",
+        "examples": [
+            {
+                "desc": "创建磁盘的完整镜像备份",
+                "cmd": "dd if=/dev/sda of=/backup/disk.img bs=4M status=progress"
+            },
+            {
+                "desc": "将 ISO 镜像写入 U 盘",
+                "cmd": "dd if=ubuntu.iso of=/dev/sdb bs=4M status=progress"
+            },
+            {
+                "desc": "生成指定大小的空文件",
+                "cmd": "dd if=/dev/zero of=testfile bs=1M count=100"
+            }
+        ],
+        "tags": [
+            "磁盘操作",
+            "镜像",
+            "备份",
+            "数据转换"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.fdisk",
+            "lnx.mount",
+            "lnx.tar"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "lnx.awk",
+        "name": "awk",
+        "aliases": [
+            "文本处理",
+            "awk命令",
+            "列处理",
+            "数据处理"
+        ],
+        "category": "linux",
+        "description": "强大的文本处理语言，用于对结构化文本数据进行分析、过滤和格式化输出",
+        "syntax": "awk [选项] '脚本' [文件...]",
+        "examples": [
+            {
+                "desc": "打印文件的某一列（第2列）",
+                "cmd": "awk '{print $2}' data.txt"
+            },
+            {
+                "desc": "按条件过滤行并打印指定列",
+                "cmd": "awk -F',' '$3 > 100 {print $1, $3}' data.csv"
+            },
+            {
+                "desc": "计算某列的数值总和",
+                "cmd": "awk '{sum += $1} END {print sum}' numbers.txt"
+            }
+        ],
+        "tags": [
+            "文本处理",
+            "数据分析",
+            "列操作",
+            "脚本"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.sed",
+            "lnx.grep",
+            "lnx.cut"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "lnx.sed",
+        "name": "sed",
+        "aliases": [
+            "流编辑器",
+            "sed命令",
+            "文本替换",
+            "批量修改"
+        ],
+        "category": "linux",
+        "description": "流式文本编辑器，用于对文本流进行过滤和转换，常用于查找替换",
+        "syntax": "sed [选项] '命令' [文件...]",
+        "examples": [
+            {
+                "desc": "替换文件中的字符串（显示结果）",
+                "cmd": "sed 's/old/new/g' file.txt"
+            },
+            {
+                "desc": "直接修改文件内容",
+                "cmd": "sed -i 's/foo/bar/g' file.txt"
+            },
+            {
+                "desc": "删除文件中的空行",
+                "cmd": "sed '/^$/d' file.txt"
+            }
+        ],
+        "tags": [
+            "文本替换",
+            "流编辑",
+            "批量处理",
+            "正则表达式"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.awk",
+            "lnx.grep",
+            "lnx.tr"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.sort",
+        "name": "sort",
+        "aliases": [
+            "排序",
+            "sort命令",
+            "文本排序"
+        ],
+        "category": "linux",
+        "description": "对文本文件内容按行进行排序，支持数值排序、逆序、去重等多种模式",
+        "syntax": "sort [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "对文件内容按字母排序",
+                "cmd": "sort file.txt"
+            },
+            {
+                "desc": "按数值大小排序（第2列）",
+                "cmd": "sort -n -k2 data.txt"
+            },
+            {
+                "desc": "排序并去重",
+                "cmd": "sort -u names.txt"
+            }
+        ],
+        "tags": [
+            "排序",
+            "文本处理",
+            "数据整理"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.uniq",
+            "lnx.awk",
+            "lnx.cut"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.uniq",
+        "name": "uniq",
+        "aliases": [
+            "去重",
+            "uniq命令",
+            "重复行"
+        ],
+        "category": "linux",
+        "description": "报告或过滤文件中的重复行，通常与 sort 配合使用",
+        "syntax": "uniq [选项] [输入文件] [输出文件]",
+        "examples": [
+            {
+                "desc": "去除相邻重复行",
+                "cmd": "uniq sorted.txt"
+            },
+            {
+                "desc": "统计每行出现的次数",
+                "cmd": "sort data.txt | uniq -c"
+            },
+            {
+                "desc": "只显示重复出现过的行",
+                "cmd": "sort data.txt | uniq -d"
+            }
+        ],
+        "tags": [
+            "去重",
+            "文本处理",
+            "数据清洗"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.sort",
+            "lnx.awk",
+            "lnx.wc"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.wc",
+        "name": "wc",
+        "aliases": [
+            "统计",
+            "计数",
+            "行数统计",
+            "wc命令"
+        ],
+        "category": "linux",
+        "description": "统计文件中的行数、单词数和字节数/字符数",
+        "syntax": "wc [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "统计文件行数",
+                "cmd": "wc -l file.txt"
+            },
+            {
+                "desc": "统计文件单词数",
+                "cmd": "wc -w document.txt"
+            },
+            {
+                "desc": "同时显示行数、单词数、字节数",
+                "cmd": "wc data.txt"
+            }
+        ],
+        "tags": [
+            "统计",
+            "计数",
+            "文本分析"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.sort",
+            "lnx.uniq",
+            "lnx.head"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.head",
+        "name": "head",
+        "aliases": [
+            "开头",
+            "查看开头",
+            "head命令"
+        ],
+        "category": "linux",
+        "description": "显示文件的前几行内容，默认显示前 10 行",
+        "syntax": "head [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "查看文件的前 10 行",
+                "cmd": "head file.txt"
+            },
+            {
+                "desc": "查看文件的前 20 行",
+                "cmd": "head -n 20 file.txt"
+            },
+            {
+                "desc": "显示文件除最后 5 行外的全部内容",
+                "cmd": "head -n -5 file.txt"
+            }
+        ],
+        "tags": [
+            "文件查看",
+            "文本预览",
+            "日志分析"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.tail",
+            "lnx.cat",
+            "lnx.less"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.tail",
+        "name": "tail",
+        "aliases": [
+            "结尾",
+            "查看末尾",
+            "tail命令",
+            "日志监控"
+        ],
+        "category": "linux",
+        "description": "显示文件的末尾几行，-f 选项可实时跟踪文件新增内容",
+        "syntax": "tail [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "查看文件的最后 10 行",
+                "cmd": "tail file.txt"
+            },
+            {
+                "desc": "实时监控日志文件的新增内容",
+                "cmd": "tail -f /var/log/syslog"
+            },
+            {
+                "desc": "查看文件的最后 50 行",
+                "cmd": "tail -n 50 app.log"
+            }
+        ],
+        "tags": [
+            "文件查看",
+            "日志监控",
+            "实时跟踪"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.head",
+            "lnx.cat",
+            "lnx.less"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.cut",
+        "name": "cut",
+        "aliases": [
+            "剪切",
+            "列提取",
+            "截取",
+            "cut命令"
+        ],
+        "category": "linux",
+        "description": "从文本行中提取指定字段、字符或字节，常用于处理 CSV 等结构化文本",
+        "syntax": "cut [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "提取 CSV 文件的第 1 和第 3 列",
+                "cmd": "cut -d',' -f1,3 data.csv"
+            },
+            {
+                "desc": "提取每行的第 5-10 个字符",
+                "cmd": "cut -c5-10 file.txt"
+            },
+            {
+                "desc": "提取以冒号分隔的第 1 列",
+                "cmd": "cut -d':' -f1 /etc/passwd"
+            }
+        ],
+        "tags": [
+            "文本处理",
+            "列提取",
+            "字段分割"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.awk",
+            "lnx.paste",
+            "lnx.sort"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.cat",
+        "name": "cat",
+        "aliases": [
+            "查看文件",
+            "连接文件",
+            "cat命令"
+        ],
+        "category": "linux",
+        "description": "连接文件并打印到标准输出，常用于查看文件内容和文件合并",
+        "syntax": "cat [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "查看单个文件内容",
+                "cmd": "cat file.txt"
+            },
+            {
+                "desc": "合并多个文件输出",
+                "cmd": "cat part1.txt part2.txt > full.txt"
+            },
+            {
+                "desc": "显示行号",
+                "cmd": "cat -n file.txt"
+            }
+        ],
+        "tags": [
+            "文件查看",
+            "文件合并",
+            "输出"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.head",
+            "lnx.tail",
+            "lnx.less"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.less",
+        "name": "less",
+        "aliases": [
+            "分页查看",
+            "浏览文件",
+            "less命令"
+        ],
+        "category": "linux",
+        "description": "分页查看文件内容，支持前后翻页、搜索、跳转等交互操作",
+        "syntax": "less [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "分页查看大文件",
+                "cmd": "less largefile.log"
+            },
+            {
+                "desc": "搜索文件中的关键字",
+                "cmd": "less -p \"ERROR\" app.log"
+            },
+            {
+                "desc": "查看带行号的文件",
+                "cmd": "less -N file.txt"
+            }
+        ],
+        "tags": [
+            "文件查看",
+            "分页",
+            "浏览",
+            "大文件"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.cat",
+            "lnx.head",
+            "lnx.tail"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.diff",
+        "name": "diff",
+        "aliases": [
+            "比较",
+            "差异",
+            "对比文件",
+            "diff命令"
+        ],
+        "category": "linux",
+        "description": "逐行比较两个文件的差异，输出不同之处",
+        "syntax": "diff [选项] 文件1 文件2",
+        "examples": [
+            {
+                "desc": "比较两个文件的差异",
+                "cmd": "diff file1.txt file2.txt"
+            },
+            {
+                "desc": "以统一格式显示差异",
+                "cmd": "diff -u old.txt new.txt"
+            },
+            {
+                "desc": "递归比较两个目录",
+                "cmd": "diff -r dir1/ dir2/"
+            }
+        ],
+        "tags": [
+            "文件比较",
+            "差异分析",
+            "版本对比"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.cmp",
+            "lnx.patch",
+            "lnx.comm"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.tr",
+        "name": "tr",
+        "aliases": [
+            "字符转换",
+            "替换字符",
+            "tr命令"
+        ],
+        "category": "linux",
+        "description": "对标准输入进行字符转换、删除或压缩重复字符",
+        "syntax": "tr [选项] 字符集1 [字符集2]",
+        "examples": [
+            {
+                "desc": "将所有小写字母转为大写",
+                "cmd": "echo \"hello\" | tr '[:lower:]' '[:upper:]'"
+            },
+            {
+                "desc": "删除所有数字",
+                "cmd": "echo \"abc123\" | tr -d '0-9'"
+            },
+            {
+                "desc": "将换行符替换为空格",
+                "cmd": "cat file.txt | tr '\\n' ' '"
+            }
+        ],
+        "tags": [
+            "字符转换",
+            "文本处理",
+            "字符替换"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.sed",
+            "lnx.awk",
+            "lnx.cut"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.tee",
+        "name": "tee",
+        "aliases": [
+            "分流输出",
+            "tee命令"
+        ],
+        "category": "linux",
+        "description": "从标准输入读取数据，同时输出到标准输出和一个或多个文件",
+        "syntax": "tee [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "保存命令输出并同时显示在终端",
+                "cmd": "ls -l | tee output.txt"
+            },
+            {
+                "desc": "追加模式写入文件",
+                "cmd": "echo \"new line\" | tee -a log.txt"
+            },
+            {
+                "desc": "同时写入多个文件",
+                "cmd": "echo \"data\" | tee file1.txt file2.txt"
+            }
+        ],
+        "tags": [
+            "输出",
+            "重定向",
+            "日志"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.cat",
+            "lnx.pipe"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.tar",
+        "name": "tar",
+        "aliases": [
+            "打包",
+            "解压",
+            "tar命令",
+            "归档"
+        ],
+        "category": "linux",
+        "description": "创建、提取和管理 tar 归档文件，常配合 gzip/bzip2 压缩使用",
+        "syntax": "tar [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "创建 .tar.gz 压缩包",
+                "cmd": "tar -czf archive.tar.gz /path/to/dir/"
+            },
+            {
+                "desc": "解压 .tar.gz 文件",
+                "cmd": "tar -xzf archive.tar.gz"
+            },
+            {
+                "desc": "列出压缩包内容不解压",
+                "cmd": "tar -tzf archive.tar.gz"
+            }
+        ],
+        "tags": [
+            "打包",
+            "压缩",
+            "归档",
+            "备份"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.gzip",
+            "lnx.gunzip",
+            "lnx.zip"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.gzip",
+        "name": "gzip",
+        "aliases": [
+            "压缩",
+            "gzip命令",
+            "gz压缩"
+        ],
+        "category": "linux",
+        "description": "使用 LZ77 算法压缩单个文件，生成 .gz 格式的压缩文件",
+        "syntax": "gzip [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "压缩单个文件",
+                "cmd": "gzip file.txt"
+            },
+            {
+                "desc": "指定压缩级别（1最快~9最优）",
+                "cmd": "gzip -9 largefile.log"
+            },
+            {
+                "desc": "保留原文件进行压缩",
+                "cmd": "gzip -c file.txt > file.txt.gz"
+            }
+        ],
+        "tags": [
+            "压缩",
+            "文件压缩",
+            "gzip"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.gunzip",
+            "lnx.tar",
+            "lnx.bzip2"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.gunzip",
+        "name": "gunzip",
+        "aliases": [
+            "解压",
+            "gunzip命令",
+            "gz解压"
+        ],
+        "category": "linux",
+        "description": "解压 .gz 格式的压缩文件，是 gzip 的反向操作",
+        "syntax": "gunzip [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "解压 .gz 文件",
+                "cmd": "gunzip file.txt.gz"
+            },
+            {
+                "desc": "解压并保留原压缩文件",
+                "cmd": "gunzip -k file.txt.gz"
+            },
+            {
+                "desc": "解压多个 .gz 文件",
+                "cmd": "gunzip *.gz"
+            }
+        ],
+        "tags": [
+            "解压",
+            "文件解压",
+            "gzip"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.gzip",
+            "lnx.tar",
+            "lnx.unzip"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.zip",
+        "name": "zip",
+        "aliases": [
+            "zip压缩",
+            "打包压缩",
+            "zip命令"
+        ],
+        "category": "linux",
+        "description": "将文件和目录打包压缩为 .zip 格式，兼容 Windows/macOS",
+        "syntax": "zip [选项] 压缩包名.zip 文件...",
+        "examples": [
+            {
+                "desc": "压缩多个文件到 zip 包",
+                "cmd": "zip backup.zip file1.txt file2.txt"
+            },
+            {
+                "desc": "递归压缩整个目录",
+                "cmd": "zip -r project.zip myproject/"
+            },
+            {
+                "desc": "加密压缩",
+                "cmd": "zip -e secure.zip secret.txt"
+            }
+        ],
+        "tags": [
+            "压缩",
+            "打包",
+            "zip",
+            "跨平台"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.unzip",
+            "lnx.tar",
+            "lnx.gzip"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.unzip",
+        "name": "unzip",
+        "aliases": [
+            "解压zip",
+            "unzip命令"
+        ],
+        "category": "linux",
+        "description": "解压 .zip 格式的压缩文件，支持列出内容和选择性解压",
+        "syntax": "unzip [选项] 压缩包名.zip",
+        "examples": [
+            {
+                "desc": "解压 zip 文件到当前目录",
+                "cmd": "unzip archive.zip"
+            },
+            {
+                "desc": "解压到指定目录",
+                "cmd": "unzip archive.zip -d /target/dir/"
+            },
+            {
+                "desc": "列出 zip 文件内容不解压",
+                "cmd": "unzip -l archive.zip"
+            }
+        ],
+        "tags": [
+            "解压",
+            "zip",
+            "文件解压"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.zip",
+            "lnx.tar",
+            "lnx.gunzip"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.bzip2",
+        "name": "bzip2",
+        "aliases": [
+            "bzip2压缩",
+            "bz2压缩",
+            "bzip2命令"
+        ],
+        "category": "linux",
+        "description": "使用 Burrows-Wheeler 算法进行压缩，压缩率通常高于 gzip，生成 .bz2 文件",
+        "syntax": "bzip2 [选项] [文件...]",
+        "examples": [
+            {
+                "desc": "压缩文件生成 .bz2",
+                "cmd": "bzip2 file.txt"
+            },
+            {
+                "desc": "以最高压缩率压缩",
+                "cmd": "bzip2 -9 largefile.log"
+            },
+            {
+                "desc": "解压 .bz2 文件",
+                "cmd": "bzip2 -d file.txt.bz2"
+            }
+        ],
+        "tags": [
+            "压缩",
+            "bzip2",
+            "高压缩比"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.gzip",
+            "lnx.tar",
+            "lnx.xz"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.systemctl",
+        "name": "systemctl",
+        "aliases": [
+            "服务管理",
+            "systemctl命令",
+            "systemd"
+        ],
+        "category": "linux",
+        "description": "管理系统服务（systemd），支持启动、停止、重启、启用/禁用服务等操作",
+        "syntax": "systemctl [选项] 命令 服务名",
+        "examples": [
+            {
+                "desc": "启动 nginx 服务",
+                "cmd": "sudo systemctl start nginx"
+            },
+            {
+                "desc": "设置服务开机自启",
+                "cmd": "sudo systemctl enable nginx"
+            },
+            {
+                "desc": "查看服务运行状态",
+                "cmd": "systemctl status nginx"
+            }
+        ],
+        "tags": [
+            "服务管理",
+            "systemd",
+            "守护进程",
+            "系统管理"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.journalctl",
+            "lnx.ps",
+            "lnx.top"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.journalctl",
+        "name": "journalctl",
+        "aliases": [
+            "日志查看",
+            "journalctl命令",
+            "systemd日志"
+        ],
+        "category": "linux",
+        "description": "查看和管理 systemd 日志（journal），支持按服务、时间、优先级过滤",
+        "syntax": "journalctl [选项]",
+        "examples": [
+            {
+                "desc": "查看所有系统日志",
+                "cmd": "journalctl"
+            },
+            {
+                "desc": "查看指定服务的日志",
+                "cmd": "journalctl -u nginx"
+            },
+            {
+                "desc": "查看最近的日志（实时跟踪）",
+                "cmd": "journalctl -f"
+            }
+        ],
+        "tags": [
+            "日志",
+            "systemd",
+            "调试",
+            "系统管理"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.systemctl",
+            "lnx.dmesg",
+            "lnx.tail"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.top",
+        "name": "top",
+        "aliases": [
+            "进程监控",
+            "top命令",
+            "资源查看"
+        ],
+        "category": "linux",
+        "description": "实时显示系统进程和资源使用情况（CPU、内存等），支持交互式操作",
+        "syntax": "top [选项]",
+        "examples": [
+            {
+                "desc": "启动交互式进程监控",
+                "cmd": "top"
+            },
+            {
+                "desc": "按内存使用排序显示",
+                "cmd": "top -o %MEM"
+            },
+            {
+                "desc": "指定刷新间隔为 2 秒",
+                "cmd": "top -d 2"
+            }
+        ],
+        "tags": [
+            "进程监控",
+            "系统资源",
+            "性能分析",
+            "CPU"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.htop",
+            "lnx.ps",
+            "lnx.free"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.htop",
+        "name": "htop",
+        "aliases": [
+            "进程管理器",
+            "htop命令",
+            "交互式top"
+        ],
+        "category": "linux",
+        "description": "top 的增强版，提供彩色、交互式的进程查看界面，支持鼠标操作",
+        "syntax": "htop [选项]",
+        "examples": [
+            {
+                "desc": "启动 htop 进程浏览",
+                "cmd": "htop"
+            },
+            {
+                "desc": "显示特定用户的进程",
+                "cmd": "htop -u username"
+            },
+            {
+                "desc": "以树形结构显示进程",
+                "cmd": "htop -t"
+            }
+        ],
+        "tags": [
+            "进程监控",
+            "系统资源",
+            "交互式",
+            "任务管理"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.top",
+            "lnx.ps",
+            "lnx.kill"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.ps",
+        "name": "ps",
+        "aliases": [
+            "进程",
+            "查看进程",
+            "ps命令"
+        ],
+        "category": "linux",
+        "description": "显示当前系统运行的进程状态信息",
+        "syntax": "ps [选项]",
+        "examples": [
+            {
+                "desc": "显示所有运行中的进程",
+                "cmd": "ps aux"
+            },
+            {
+                "desc": "按 CPU 使用排序显示进程",
+                "cmd": "ps aux --sort=-%cpu"
+            },
+            {
+                "desc": "搜索特定名称的进程",
+                "cmd": "ps aux | grep nginx"
+            }
+        ],
+        "tags": [
+            "进程",
+            "进程管理",
+            "系统监控"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.top",
+            "lnx.kill",
+            "lnx.killall"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.kill",
+        "name": "kill",
+        "aliases": [
+            "终止进程",
+            "结束进程",
+            "kill命令"
+        ],
+        "category": "linux",
+        "description": "向指定进程发送信号，常用于终止进程运行",
+        "syntax": "kill [选项] PID...",
+        "examples": [
+            {
+                "desc": "正常终止指定进程",
+                "cmd": "kill 1234"
+            },
+            {
+                "desc": "强制终止进程（信号 9）",
+                "cmd": "kill -9 1234"
+            },
+            {
+                "desc": "列出所有可用信号",
+                "cmd": "kill -l"
+            }
+        ],
+        "tags": [
+            "进程管理",
+            "信号",
+            "进程终止"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.killall",
+            "lnx.ps",
+            "lnx.top"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.killall",
+        "name": "killall",
+        "aliases": [
+            "批量终止",
+            "killall命令",
+            "终止所有"
+        ],
+        "category": "linux",
+        "description": "按进程名终止所有匹配的进程，无需逐个查找 PID",
+        "syntax": "killall [选项] 进程名",
+        "examples": [
+            {
+                "desc": "终止所有名为 nginx 的进程",
+                "cmd": "sudo killall nginx"
+            },
+            {
+                "desc": "终止前确认",
+                "cmd": "killall -i firefox"
+            },
+            {
+                "desc": "强制终止指定进程名的所有实例",
+                "cmd": "killall -9 node"
+            }
+        ],
+        "tags": [
+            "进程管理",
+            "批量操作",
+            "进程终止"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.kill",
+            "lnx.ps",
+            "lnx.pkill"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.df",
+        "name": "df",
+        "aliases": [
+            "磁盘空间",
+            "查看磁盘",
+            "df命令"
+        ],
+        "category": "linux",
+        "description": "显示文件系统的磁盘空间使用情况",
+        "syntax": "df [选项] [文件系统]",
+        "examples": [
+            {
+                "desc": "以人类可读格式显示磁盘使用",
+                "cmd": "df -h"
+            },
+            {
+                "desc": "显示文件系统类型",
+                "cmd": "df -T"
+            },
+            {
+                "desc": "查看特定目录所在磁盘的使用情况",
+                "cmd": "df -h /home"
+            }
+        ],
+        "tags": [
+            "磁盘空间",
+            "存储",
+            "文件系统"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.du",
+            "lnx.mount",
+            "lnx.lsblk"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.du",
+        "name": "du",
+        "aliases": [
+            "磁盘占用",
+            "目录大小",
+            "du命令"
+        ],
+        "category": "linux",
+        "description": "显示目录或文件的磁盘使用量（空间占用）",
+        "syntax": "du [选项] [文件/目录]",
+        "examples": [
+            {
+                "desc": "查看目录总大小",
+                "cmd": "du -sh /var/log/"
+            },
+            {
+                "desc": "按大小排序查看子目录",
+                "cmd": "du -h --max-depth=1 /home | sort -h"
+            },
+            {
+                "desc": "查看当前目录下每个文件的大小",
+                "cmd": "du -ah ."
+            }
+        ],
+        "tags": [
+            "磁盘占用",
+            "目录大小",
+            "空间分析"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.df",
+            "lnx.ncdu",
+            "lnx.ls"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.free",
+        "name": "free",
+        "aliases": [
+            "内存",
+            "查看内存",
+            "free命令"
+        ],
+        "category": "linux",
+        "description": "显示系统内存（物理内存和交换分区）的使用情况",
+        "syntax": "free [选项]",
+        "examples": [
+            {
+                "desc": "以人类可读格式显示内存信息",
+                "cmd": "free -h"
+            },
+            {
+                "desc": "持续监控内存使用变化",
+                "cmd": "free -s 2"
+            },
+            {
+                "desc": "同时显示总计行",
+                "cmd": "free -ht"
+            }
+        ],
+        "tags": [
+            "内存",
+            "系统资源",
+            "性能监控"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.top",
+            "lnx.htop",
+            "lnx.vmstat"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.uname",
+        "name": "uname",
+        "aliases": [
+            "系统信息",
+            "内核版本",
+            "uname命令"
+        ],
+        "category": "linux",
+        "description": "显示系统基本信息，包括内核名称、版本、主机名、处理器架构等",
+        "syntax": "uname [选项]",
+        "examples": [
+            {
+                "desc": "显示所有系统信息",
+                "cmd": "uname -a"
+            },
+            {
+                "desc": "查看内核版本",
+                "cmd": "uname -r"
+            },
+            {
+                "desc": "查看系统架构（64位/32位）",
+                "cmd": "uname -m"
+            }
+        ],
+        "tags": [
+            "系统信息",
+            "内核",
+            "版本",
+            "系统管理"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.hostname",
+            "lnx.arch",
+            "lnx.lsb_release"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.uptime",
+        "name": "uptime",
+        "aliases": [
+            "运行时间",
+            "uptime命令",
+            "系统负载"
+        ],
+        "category": "linux",
+        "description": "显示系统已运行的时间、当前登录用户数和系统平均负载",
+        "syntax": "uptime [选项]",
+        "examples": [
+            {
+                "desc": "查看系统运行时间和负载",
+                "cmd": "uptime"
+            },
+            {
+                "desc": "以简洁格式显示运行时间",
+                "cmd": "uptime -p"
+            },
+            {
+                "desc": "显示系统启动时间",
+                "cmd": "uptime -s"
+            }
+        ],
+        "tags": [
+            "系统运行时间",
+            "负载",
+            "系统状态"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.uname",
+            "lnx.who",
+            "lnx.top"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.dmesg",
+        "name": "dmesg",
+        "aliases": [
+            "内核日志",
+            "启动日志",
+            "dmesg命令"
+        ],
+        "category": "linux",
+        "description": "显示内核环形缓冲区消息，用于查看系统启动和硬件相关的诊断信息",
+        "syntax": "dmesg [选项]",
+        "examples": [
+            {
+                "desc": "查看所有内核消息",
+                "cmd": "dmesg"
+            },
+            {
+                "desc": "查看硬件相关的消息",
+                "cmd": "dmesg | grep -i usb"
+            },
+            {
+                "desc": "持续监控新的内核消息",
+                "cmd": "dmesg -w"
+            }
+        ],
+        "tags": [
+            "内核日志",
+            "硬件",
+            "诊断",
+            "调试"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.journalctl",
+            "lnx.lsusb",
+            "lnx.lspci"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.lsof",
+        "name": "lsof",
+        "aliases": [
+            "打开文件",
+            "文件句柄",
+            "lsof命令"
+        ],
+        "category": "linux",
+        "description": "列出系统中所有已打开的文件和相应的进程信息",
+        "syntax": "lsof [选项]",
+        "examples": [
+            {
+                "desc": "查看哪个进程在使用指定文件",
+                "cmd": "lsof /var/log/syslog"
+            },
+            {
+                "desc": "查看指定端口被哪个进程占用",
+                "cmd": "lsof -i :80"
+            },
+            {
+                "desc": "查看指定用户打开的所有文件",
+                "cmd": "lsof -u username"
+            }
+        ],
+        "tags": [
+            "文件句柄",
+            "进程",
+            "网络",
+            "调试"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.fuser",
+            "lnx.ps",
+            "lnx.netstat"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.fdisk",
+        "name": "fdisk",
+        "aliases": [
+            "磁盘分区",
+            "分区管理",
+            "fdisk命令"
+        ],
+        "category": "linux",
+        "description": "磁盘分区表管理工具，用于创建、删除、修改磁盘分区",
+        "syntax": "fdisk [选项] 设备",
+        "examples": [
+            {
+                "desc": "查看所有磁盘分区信息",
+                "cmd": "sudo fdisk -l"
+            },
+            {
+                "desc": "进入交互式分区管理界面",
+                "cmd": "sudo fdisk /dev/sda"
+            },
+            {
+                "desc": "查看特定磁盘的分区表",
+                "cmd": "sudo fdisk -l /dev/sdb"
+            }
+        ],
+        "tags": [
+            "磁盘分区",
+            "存储管理",
+            "分区表"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.lsblk",
+            "lnx.mount",
+            "lnx.dd"
+        ],
+        "difficulty": "advanced"
+    },
+    {
+        "id": "lnx.mount",
+        "name": "mount",
+        "aliases": [
+            "挂载",
+            "mount命令"
+        ],
+        "category": "linux",
+        "description": "将文件系统（磁盘分区、网络共享等）挂载到指定目录",
+        "syntax": "mount [选项] 设备 挂载点",
+        "examples": [
+            {
+                "desc": "挂载磁盘分区到目录",
+                "cmd": "sudo mount /dev/sdb1 /mnt/data"
+            },
+            {
+                "desc": "查看所有已挂载的文件系统",
+                "cmd": "mount"
+            },
+            {
+                "desc": "以只读方式挂载文件系统",
+                "cmd": "sudo mount -o ro /dev/sdc1 /mnt/external"
+            }
+        ],
+        "tags": [
+            "挂载",
+            "文件系统",
+            "磁盘管理"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.umount",
+            "lnx.fdisk",
+            "lnx.lsblk"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.umount",
+        "name": "umount",
+        "aliases": [
+            "卸载",
+            "umount命令"
+        ],
+        "category": "linux",
+        "description": "卸载已挂载的文件系统，释放设备使用",
+        "syntax": "umount [选项] 设备|挂载点",
+        "examples": [
+            {
+                "desc": "卸载指定挂载点",
+                "cmd": "sudo umount /mnt/data"
+            },
+            {
+                "desc": "强制卸载（当设备忙时）",
+                "cmd": "sudo umount -f /mnt/data"
+            },
+            {
+                "desc": "延迟卸载（等设备空闲后自动卸载）",
+                "cmd": "sudo umount -l /mnt/data"
+            }
+        ],
+        "tags": [
+            "卸载",
+            "文件系统",
+            "磁盘管理"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.mount",
+            "lnx.fdisk",
+            "lnx.lsblk"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.lsblk",
+        "name": "lsblk",
+        "aliases": [
+            "块设备",
+            "磁盘列表",
+            "lsblk命令"
+        ],
+        "category": "linux",
+        "description": "列出系统中所有块设备（硬盘、分区等）的信息，包含大小、挂载点等",
+        "syntax": "lsblk [选项]",
+        "examples": [
+            {
+                "desc": "显示所有块设备的树形结构",
+                "cmd": "lsblk"
+            },
+            {
+                "desc": "显示文件系统和挂载点",
+                "cmd": "lsblk -f"
+            },
+            {
+                "desc": "以字节显示大小",
+                "cmd": "lsblk -b"
+            }
+        ],
+        "tags": [
+            "块设备",
+            "磁盘",
+            "存储",
+            "系统信息"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.fdisk",
+            "lnx.mount",
+            "lnx.df"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.curl",
+        "name": "curl",
+        "aliases": [
+            "网络请求",
+            "curl命令",
+            "HTTP请求",
+            "下载"
+        ],
+        "category": "linux",
+        "description": "通过 URL 进行数据传输，支持 HTTP/HTTPS/FTP 等多种协议",
+        "syntax": "curl [选项] URL",
+        "examples": [
+            {
+                "desc": "发起 GET 请求并显示响应",
+                "cmd": "curl https://api.example.com/data"
+            },
+            {
+                "desc": "下载文件并保存",
+                "cmd": "curl -o file.zip https://example.com/file.zip"
+            },
+            {
+                "desc": "发送 POST 请求带 JSON 数据",
+                "cmd": "curl -X POST -H \"Content-Type: application/json\" -d '{\"key\":\"value\"}' https://api.example.com"
+            }
+        ],
+        "tags": [
+            "HTTP",
+            "网络请求",
+            "API",
+            "下载",
+            "网络工具"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.wget",
+            "lnx.ping",
+            "lnx.nslookup"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.wget",
+        "name": "wget",
+        "aliases": [
+            "下载工具",
+            "wget命令",
+            "文件下载"
+        ],
+        "category": "linux",
+        "description": "从网络下载文件的命令行工具，支持断点续传和递归下载",
+        "syntax": "wget [选项] URL",
+        "examples": [
+            {
+                "desc": "下载单个文件",
+                "cmd": "wget https://example.com/file.tar.gz"
+            },
+            {
+                "desc": "断点续传下载",
+                "cmd": "wget -c https://example.com/largefile.iso"
+            },
+            {
+                "desc": "递归下载整个网站",
+                "cmd": "wget -r https://example.com/docs/"
+            }
+        ],
+        "tags": [
+            "下载",
+            "网络",
+            "文件传输",
+            "HTTP"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.curl",
+            "lnx.rsync",
+            "lnx.scp"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.ssh",
+        "name": "ssh",
+        "aliases": [
+            "远程连接",
+            "SSH",
+            "ssh命令",
+            "远程登录"
+        ],
+        "category": "linux",
+        "description": "通过 SSH 协议安全连接到远程服务器，提供加密的远程终端访问",
+        "syntax": "ssh [选项] 用户名@主机地址",
+        "examples": [
+            {
+                "desc": "连接到远程服务器",
+                "cmd": "ssh user@192.168.1.100"
+            },
+            {
+                "desc": "使用指定端口连接",
+                "cmd": "ssh -p 2222 user@example.com"
+            },
+            {
+                "desc": "在远程服务器上执行命令",
+                "cmd": "ssh user@server \"ls -la /var/www\""
+            }
+        ],
+        "tags": [
+            "远程连接",
+            "SSH",
+            "安全",
+            "服务器管理"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.scp",
+            "lnx.rsync",
+            "lnx.ssh-keygen"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.scp",
+        "name": "scp",
+        "aliases": [
+            "远程复制",
+            "scp命令",
+            "安全拷贝"
+        ],
+        "category": "linux",
+        "description": "基于 SSH 协议在本地和远程主机之间安全地复制文件",
+        "syntax": "scp [选项] 源文件 目标路径",
+        "examples": [
+            {
+                "desc": "复制本地文件到远程服务器",
+                "cmd": "scp file.txt user@server:/remote/path/"
+            },
+            {
+                "desc": "从远程服务器下载文件",
+                "cmd": "scp user@server:/remote/file.txt ./local/"
+            },
+            {
+                "desc": "复制整个目录到远程",
+                "cmd": "scp -r mydir/ user@server:/remote/"
+            }
+        ],
+        "tags": [
+            "远程复制",
+            "文件传输",
+            "SSH",
+            "安全"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.ssh",
+            "lnx.rsync",
+            "lnx.sftp"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.rsync",
+        "name": "rsync",
+        "aliases": [
+            "同步",
+            "rsync命令",
+            "远程同步"
+        ],
+        "category": "linux",
+        "description": "高效的文件远程同步工具，支持增量传输、压缩、保留权限等特性",
+        "syntax": "rsync [选项] 源路径 目标路径",
+        "examples": [
+            {
+                "desc": "本地目录同步",
+                "cmd": "rsync -av /source/dir/ /dest/dir/"
+            },
+            {
+                "desc": "同步本地目录到远程服务器",
+                "cmd": "rsync -avz /local/dir/ user@server:/remote/dir/"
+            },
+            {
+                "desc": "增量同步（只传输差异部分）",
+                "cmd": "rsync -av --progress /src/ /dst/"
+            }
+        ],
+        "tags": [
+            "文件同步",
+            "备份",
+            "增量传输",
+            "远程"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.scp",
+            "lnx.ssh",
+            "lnx.tar"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.ping",
+        "name": "ping",
+        "aliases": [
+            "ping命令",
+            "网络连通",
+            "延迟测试"
+        ],
+        "category": "linux",
+        "description": "通过发送 ICMP 回显请求检测网络连接状态和测量往返延迟时间",
+        "syntax": "ping [选项] 目标地址",
+        "examples": [
+            {
+                "desc": "测试与目标主机的连通性",
+                "cmd": "ping google.com"
+            },
+            {
+                "desc": "发送指定数量的数据包",
+                "cmd": "ping -c 4 192.168.1.1"
+            },
+            {
+                "desc": "设置数据包发送间隔为 2 秒",
+                "cmd": "ping -i 2 example.com"
+            }
+        ],
+        "tags": [
+            "网络诊断",
+            "连通性",
+            "延迟",
+            "ICMP"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.traceroute",
+            "lnx.netstat",
+            "lnx.ss"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.netstat",
+        "name": "netstat",
+        "aliases": [
+            "网络状态",
+            "netstat命令",
+            "端口查看"
+        ],
+        "category": "linux",
+        "description": "显示网络连接、路由表、接口统计等网络相关信息",
+        "syntax": "netstat [选项]",
+        "examples": [
+            {
+                "desc": "查看所有监听的端口",
+                "cmd": "netstat -tlnp"
+            },
+            {
+                "desc": "查看所有网络连接",
+                "cmd": "netstat -an"
+            },
+            {
+                "desc": "查看网络接口统计信息",
+                "cmd": "netstat -i"
+            }
+        ],
+        "tags": [
+            "网络",
+            "端口",
+            "连接",
+            "网络诊断"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.ss",
+            "lnx.lsof",
+            "lnx.ping"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.ss",
+        "name": "ss",
+        "aliases": [
+            "socket统计",
+            "ss命令",
+            "套接字"
+        ],
+        "category": "linux",
+        "description": "查看套接字统计信息，比 netstat 更快，是 netstat 的现代替代品",
+        "syntax": "ss [选项]",
+        "examples": [
+            {
+                "desc": "显示所有 TCP 连接",
+                "cmd": "ss -t"
+            },
+            {
+                "desc": "显示所有监听中的端口",
+                "cmd": "ss -tlnp"
+            },
+            {
+                "desc": "显示所有已建立连接",
+                "cmd": "ss state established"
+            }
+        ],
+        "tags": [
+            "网络",
+            "套接字",
+            "端口",
+            "连接状态"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.netstat",
+            "lnx.lsof",
+            "lnx.ip"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.nc",
+        "name": "nc",
+        "aliases": [
+            "netcat",
+            "nc命令",
+            "网络工具"
+        ],
+        "category": "linux",
+        "description": "多功能网络工具，用于读写 TCP/UDP 连接，常用于端口扫描、数据传输和调试",
+        "syntax": "nc [选项] 主机 端口",
+        "examples": [
+            {
+                "desc": "检测远程端口是否开放",
+                "cmd": "nc -zv example.com 80"
+            },
+            {
+                "desc": "创建简易的 TCP 聊天服务器",
+                "cmd": "nc -l 1234"
+            },
+            {
+                "desc": "端口扫描指定范围",
+                "cmd": "nc -zv 192.168.1.1 20-100"
+            }
+        ],
+        "tags": [
+            "网络",
+            "端口扫描",
+            "调试",
+            "TCP",
+            "UDP"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.ss",
+            "lnx.curl",
+            "lnx.telnet"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.ip",
+        "name": "ip",
+        "aliases": [
+            "网络配置",
+            "ip命令",
+            "路由"
+        ],
+        "category": "linux",
+        "description": "管理网络接口、路由、地址等网络配置，是 ifconfig 的现代替代品",
+        "syntax": "ip [选项] 对象 命令",
+        "examples": [
+            {
+                "desc": "查看所有网络接口信息",
+                "cmd": "ip addr show"
+            },
+            {
+                "desc": "查看路由表",
+                "cmd": "ip route show"
+            },
+            {
+                "desc": "启用/禁用网络接口",
+                "cmd": "sudo ip link set eth0 up"
+            }
+        ],
+        "tags": [
+            "网络",
+            "路由",
+            "网络接口",
+            "IP"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.ifconfig",
+            "lnx.ss",
+            "lnx.ping"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.traceroute",
+        "name": "traceroute",
+        "aliases": [
+            "路由追踪",
+            "traceroute命令",
+            "路径追踪"
+        ],
+        "category": "linux",
+        "description": "追踪数据包从本机到目标主机所经过的每一个中间路由节点",
+        "syntax": "traceroute [选项] 目标地址",
+        "examples": [
+            {
+                "desc": "追踪到目标主机的路由路径",
+                "cmd": "traceroute google.com"
+            },
+            {
+                "desc": "使用 TCP 协议追踪",
+                "cmd": "traceroute -T example.com"
+            },
+            {
+                "desc": "指定最大跳数",
+                "cmd": "traceroute -m 15 example.com"
+            }
+        ],
+        "tags": [
+            "网络诊断",
+            "路由",
+            "网络路径",
+            "延迟"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.ping",
+            "lnx.nslookup",
+            "lnx.dig"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.nslookup",
+        "name": "nslookup",
+        "aliases": [
+            "DNS查询",
+            "nslookup命令",
+            "域名解析"
+        ],
+        "category": "linux",
+        "description": "查询 DNS 记录，将域名解析为 IP 地址或进行反向解析",
+        "syntax": "nslookup [选项] 域名",
+        "examples": [
+            {
+                "desc": "查询域名的 IP 地址",
+                "cmd": "nslookup google.com"
+            },
+            {
+                "desc": "查询 MX 邮件记录",
+                "cmd": "nslookup -type=MX example.com"
+            },
+            {
+                "desc": "使用指定 DNS 服务器查询",
+                "cmd": "nslookup google.com 8.8.8.8"
+            }
+        ],
+        "tags": [
+            "DNS",
+            "域名解析",
+            "网络诊断",
+            "IP"
+        ],
+        "platform": [
+            "linux",
+            "macos",
+            "windows"
+        ],
+        "related": [
+            "lnx.dig",
+            "lnx.hostname",
+            "lnx.ping"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.dig",
+        "name": "dig",
+        "aliases": [
+            "DNS工具",
+            "dig命令",
+            "域名查询"
+        ],
+        "category": "linux",
+        "description": "功能强大的 DNS 查询工具，显示详细的 DNS 解析信息，常用于网络故障排查",
+        "syntax": "dig [选项] 域名 [查询类型]",
+        "examples": [
+            {
+                "desc": "查询域名的 A 记录",
+                "cmd": "dig google.com"
+            },
+            {
+                "desc": "查询域名的所有记录",
+                "cmd": "dig example.com ANY"
+            },
+            {
+                "desc": "执行反向 DNS 查询",
+                "cmd": "dig -x 8.8.8.8"
+            }
+        ],
+        "tags": [
+            "DNS",
+            "域名解析",
+            "网络诊断",
+            "DNS记录"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.nslookup",
+            "lnx.hostname",
+            "lnx.ping"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.apt",
+        "name": "apt",
+        "aliases": [
+            "包管理",
+            "apt命令",
+            "安装软件",
+            "Debian"
+        ],
+        "category": "linux",
+        "description": "Debian/Ubuntu 系统的高级软件包管理工具，提供友好的命令行接口",
+        "syntax": "apt [选项] 命令",
+        "examples": [
+            {
+                "desc": "更新软件包索引",
+                "cmd": "sudo apt update"
+            },
+            {
+                "desc": "安装指定软件包",
+                "cmd": "sudo apt install nginx"
+            },
+            {
+                "desc": "升级所有已安装的软件包",
+                "cmd": "sudo apt upgrade"
+            }
+        ],
+        "tags": [
+            "包管理",
+            "软件安装",
+            "Debian",
+            "Ubuntu"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.apt-get",
+            "lnx.dpkg",
+            "lnx.snap"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.dpkg",
+        "name": "dpkg",
+        "aliases": [
+            "dpkg命令",
+            "Debian包"
+        ],
+        "category": "linux",
+        "description": "Debian 系统的底层软件包管理工具，用于安装、构建、删除 .deb 包",
+        "syntax": "dpkg [选项] 操作",
+        "examples": [
+            {
+                "desc": "安装本地 .deb 包",
+                "cmd": "sudo dpkg -i package.deb"
+            },
+            {
+                "desc": "列出所有已安装的包",
+                "cmd": "dpkg -l"
+            },
+            {
+                "desc": "查看某个包安装的文件列表",
+                "cmd": "dpkg -L nginx"
+            }
+        ],
+        "tags": [
+            "包管理",
+            "Debian",
+            "软件包",
+            ".deb"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.apt",
+            "lnx.rpm",
+            "lnx.apt-get"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.yum",
+        "name": "yum",
+        "aliases": [
+            "yum命令",
+            "CentOS",
+            "RHEL"
+        ],
+        "category": "linux",
+        "description": "Red Hat/CentOS 系统的软件包管理工具，用于安装、更新、删除 RPM 包",
+        "syntax": "yum [选项] 命令",
+        "examples": [
+            {
+                "desc": "安装指定软件包",
+                "cmd": "sudo yum install httpd"
+            },
+            {
+                "desc": "搜索软件包",
+                "cmd": "yum search nginx"
+            },
+            {
+                "desc": "更新所有软件包",
+                "cmd": "sudo yum update"
+            }
+        ],
+        "tags": [
+            "包管理",
+            "RHEL",
+            "CentOS",
+            "RPM"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.dnf",
+            "lnx.rpm",
+            "lnx.apt"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.dnf",
+        "name": "dnf",
+        "aliases": [
+            "dnf命令",
+            "Fedora",
+            "包管理器"
+        ],
+        "category": "linux",
+        "description": "新一代 RPM 包管理器，是 yum 的替代品，用于 Fedora/RHEL 系统",
+        "syntax": "dnf [选项] 命令",
+        "examples": [
+            {
+                "desc": "安装软件包",
+                "cmd": "sudo dnf install nginx"
+            },
+            {
+                "desc": "移除软件包",
+                "cmd": "sudo dnf remove nginx"
+            },
+            {
+                "desc": "查看可更新的包",
+                "cmd": "dnf check-update"
+            }
+        ],
+        "tags": [
+            "包管理",
+            "Fedora",
+            "RHEL",
+            "RPM"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.yum",
+            "lnx.rpm",
+            "lnx.apt"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.rpm",
+        "name": "rpm",
+        "aliases": [
+            "rpm命令",
+            "RPM包"
+        ],
+        "category": "linux",
+        "description": "RPM 包管理器，直接操作 .rpm 格式的软件包，用于安装、查询和验证",
+        "syntax": "rpm [选项] 软件包",
+        "examples": [
+            {
+                "desc": "安装本地 RPM 包",
+                "cmd": "sudo rpm -ivh package.rpm"
+            },
+            {
+                "desc": "查询所有已安装的包",
+                "cmd": "rpm -qa"
+            },
+            {
+                "desc": "验证已安装包的完整性",
+                "cmd": "rpm -V nginx"
+            }
+        ],
+        "tags": [
+            "包管理",
+            "RPM",
+            "软件包",
+            "Red Hat"
+        ],
+        "platform": [
+            "linux"
+        ],
+        "related": [
+            "lnx.yum",
+            "lnx.dnf",
+            "lnx.dpkg"
+        ],
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "lnx.sudo",
+        "name": "sudo",
+        "aliases": [
+            "超级用户",
+            "管理员权限",
+            "sudo命令",
+            "提权"
+        ],
+        "category": "linux",
+        "description": "以超级用户（root）或其他用户的身份执行命令",
+        "syntax": "sudo [选项] 命令",
+        "examples": [
+            {
+                "desc": "以 root 权限执行命令",
+                "cmd": "sudo apt update"
+            },
+            {
+                "desc": "切换到 root 用户",
+                "cmd": "sudo -i"
+            },
+            {
+                "desc": "以指定用户身份执行命令",
+                "cmd": "sudo -u username command"
+            }
+        ],
+        "tags": [
+            "权限",
+            "管理员",
+            "root",
+            "安全"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.su",
+            "lnx.passwd",
+            "lnx.chmod"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.passwd",
+        "name": "passwd",
+        "aliases": [
+            "密码",
+            "修改密码",
+            "passwd命令"
+        ],
+        "category": "linux",
+        "description": "修改用户的登录密码，支持密码锁定、解锁和过期策略管理",
+        "syntax": "passwd [选项] [用户名]",
+        "examples": [
+            {
+                "desc": "修改当前用户的密码",
+                "cmd": "passwd"
+            },
+            {
+                "desc": "修改指定用户的密码（需 root）",
+                "cmd": "sudo passwd username"
+            },
+            {
+                "desc": "锁定用户账号",
+                "cmd": "sudo passwd -l username"
+            }
+        ],
+        "tags": [
+            "密码",
+            "安全",
+            "用户管理",
+            "认证"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.sudo",
+            "lnx.su",
+            "lnx.useradd"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.who",
+        "name": "who",
+        "aliases": [
+            "登录用户",
+            "who命令",
+            "在线用户"
+        ],
+        "category": "linux",
+        "description": "显示当前登录到系统的所有用户信息",
+        "syntax": "who [选项]",
+        "examples": [
+            {
+                "desc": "显示所有登录用户",
+                "cmd": "who"
+            },
+            {
+                "desc": "显示当前终端的用户名",
+                "cmd": "who am i"
+            },
+            {
+                "desc": "显示系统启动时间",
+                "cmd": "who -b"
+            }
+        ],
+        "tags": [
+            "用户",
+            "登录",
+            "系统信息"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.whoami",
+            "lnx.last",
+            "lnx.uptime"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.whoami",
+        "name": "whoami",
+        "aliases": [
+            "当前用户",
+            "whoami命令"
+        ],
+        "category": "linux",
+        "description": "显示当前登录用户的用户名",
+        "syntax": "whoami",
+        "examples": [
+            {
+                "desc": "查看当前用户名",
+                "cmd": "whoami"
+            },
+            {
+                "desc": "在脚本中获取当前用户",
+                "cmd": "echo \"当前用户是 $(whoami)\""
+            }
+        ],
+        "tags": [
+            "用户",
+            "身份",
+            "当前用户"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.who",
+            "lnx.id",
+            "lnx.groups"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.id",
+        "name": "id",
+        "aliases": [
+            "用户ID",
+            "id命令",
+            "组信息"
+        ],
+        "category": "linux",
+        "description": "显示当前用户或指定用户的 UID、GID 和所属组信息",
+        "syntax": "id [选项] [用户名]",
+        "examples": [
+            {
+                "desc": "查看当前用户信息",
+                "cmd": "id"
+            },
+            {
+                "desc": "查看指定用户信息",
+                "cmd": "id username"
+            },
+            {
+                "desc": "只显示用户组 ID",
+                "cmd": "id -G"
+            }
+        ],
+        "tags": [
+            "用户",
+            "UID",
+            "GID",
+            "用户组"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.whoami",
+            "lnx.groups",
+            "lnx.who"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.groups",
+        "name": "groups",
+        "aliases": [
+            "用户组",
+            "groups命令"
+        ],
+        "category": "linux",
+        "description": "显示指定用户所属的所有组",
+        "syntax": "groups [用户名]",
+        "examples": [
+            {
+                "desc": "查看当前用户所属组",
+                "cmd": "groups"
+            },
+            {
+                "desc": "查看指定用户所属组",
+                "cmd": "groups username"
+            }
+        ],
+        "tags": [
+            "用户组",
+            "权限",
+            "用户管理"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.id",
+            "lnx.useradd",
+            "lnx.usermod"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.last",
+        "name": "last",
+        "aliases": [
+            "登录记录",
+            "last命令",
+            "登录历史"
+        ],
+        "category": "linux",
+        "description": "显示系统用户的最近登录记录，从 /var/log/wtmp 文件读取",
+        "syntax": "last [选项] [用户名]",
+        "examples": [
+            {
+                "desc": "查看所有用户的登录历史",
+                "cmd": "last"
+            },
+            {
+                "desc": "查看指定用户的登录记录",
+                "cmd": "last username"
+            },
+            {
+                "desc": "查看最近 10 条登录记录",
+                "cmd": "last -n 10"
+            }
+        ],
+        "tags": [
+            "登录记录",
+            "安全审计",
+            "用户活动"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.who",
+            "lnx.lastlog",
+            "lnx.w"
+        ],
+        "difficulty": "beginner"
+    },
+    {
+        "id": "lnx.hostname",
+        "name": "hostname",
+        "aliases": [
+            "主机名",
+            "hostname命令"
+        ],
+        "category": "linux",
+        "description": "显示或设置系统的主机名",
+        "syntax": "hostname [选项]",
+        "examples": [
+            {
+                "desc": "查看当前主机名",
+                "cmd": "hostname"
+            },
+            {
+                "desc": "查看完整主机名（含域名）",
+                "cmd": "hostname -f"
+            },
+            {
+                "desc": "设置新的主机名",
+                "cmd": "sudo hostname new-name"
+            }
+        ],
+        "tags": [
+            "主机名",
+            "系统信息",
+            "网络"
+        ],
+        "platform": [
+            "linux",
+            "macos"
+        ],
+        "related": [
+            "lnx.uname",
+            "lnx.dig",
+            "lnx.nslookup"
+        ],
+        "difficulty": "beginner"
+    }
+]
