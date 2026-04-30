@@ -3,7 +3,7 @@
   "displayName": "myterminal - AI Command Finder",
   "description": "AI 指令查询智能体 — 中文搜索终端/Linux/ClaudeCode/OpenClaw 指令用法和示例",
   "version": "0.1.0",
-  "publisher": "myterminal",
+  "publisher": "liqing666666",
   "engines": {
     "vscode": "^1.85.0"
   },
